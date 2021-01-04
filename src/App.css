@@ -1,0 +1,77 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  /* background-color: #282c34;  */
+  /* min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+  /* font-size: calc(10px + 2vmin);
+   color: white; */
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.carousel .carousel-item {
+  height: 400px;
+}
+
+.carousel-item img {
+    position: absolute;
+    object-fit:cover;
+    top: 0;
+    left: 0;
+    min-height: 400px;
+}
+
+
+
+
+
+
+/* .jumbotron {  
+  padding-top: 30px;  
+  padding-bottom: 30px; 
+   margin-bottom: 30px; 
+    color: inherit;  background-color: #eee;
+min-width:  30%; 
+align-items:center; background-color: white;max-width: 30%;} */
+
+/* .jumbotron2 {  
+  padding-top: 30px;  
+  padding-bottom: 30px; 
+   margin-bottom: 30px;   
+   color: inherit;  
+width: 95%; 
+align-items:center; 
+background-color: white;}  */
+
+
+
+
