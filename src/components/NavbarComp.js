@@ -15,7 +15,7 @@ export class NavbarComp extends Component {
     //     }
     render() {
         return (
-            <Navbar expand="lg" style={{padding:'20px'}} class="navbar-expand">
+            <Navbar expand="lg" style={{padding:'15px'}} class="navbar-expand">
             <Navbar.Brand>KMPR</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">

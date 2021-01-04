@@ -191,6 +191,7 @@ import React, { Component } from 'react'
 import AllArts from './AllArts';
 import "./CardLayout.css";
 import Cart from './Cart'
+import Footer from './Footer';
 
 export class Explore extends Component {
     render() {
@@ -243,7 +244,7 @@ export class Explore extends Component {
  
 //   </div>
 
-
+<div>
 <div class="row">
 <aside class="col-sm-3"><br></br>
     <div class="card">
@@ -368,6 +369,8 @@ export class Explore extends Component {
 </aside>
 
 
+</div>
+<Footer></Footer>
 </div>
         )
     }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link,Switch } from 'react-router-dom'
-
+import Footer from './Footer'
 export class ContactUs extends Component {
 
     constructor(props) { 
@@ -94,6 +94,7 @@ export class ContactUs extends Component {
 
             </div>
         </div>
+        <Footer></Footer>
       </section>
         )
     }

@@ -27,7 +27,7 @@ const state = {
     ]
   }
 
-export class GraphsDemo extends Component {
+export class Graphs extends Component {
     render() {
         return (
             <div>
@@ -65,4 +65,4 @@ export class GraphsDemo extends Component {
     }
 }
 
-export default GraphsDemo
+export default Graphs

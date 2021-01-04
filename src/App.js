@@ -62,7 +62,8 @@ function App() {
       <span class="sr-only">Next</span>
     </a>
   </div></div> */}
-  <div class="container">
+  
+  <div class="pt-3">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -70,17 +71,21 @@ function App() {
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner">
+   
+    {/* <div  class="bg-image hover-overlay ripple" data-mdb-ripple-color="light"> */}
+   
     <div className="carousel-item active">
-      <img class="d-block w-100" src={"/assets/img2.jpg"} alt="First slide"/>  
-
+      
+      <img class="d-block w-100" src={"/assets/img2.jpg"} alt="First slide"/> 
+       
+      
       <div class="carousel-caption">
       <Link to="/signup">
         <p><a class="btn btn-dark"  role="button">Sign up today</a></p>
       </Link>
-    
-  </div>
 
-      
+
+  </div>   
     </div>
     <div class="carousel-item">
       <img class="d-block w-100" src={"/assets/img3.jpg"} alt="Second slide"></img> 
@@ -92,6 +97,7 @@ function App() {
   </div>
     </div>
     <div class="carousel-item">
+      <div  class="img-fluid"></div>
       <img  class="d-block w-100" src={"/assets/img2.jpg"} alt="Third slide"></img>
       <div class="carousel-caption">
       <div class="carousel-caption text-center">
@@ -124,21 +130,21 @@ function App() {
       <div className="container marketing">
         {/* Three columns of text below the carousel */}
         <div className="row">
-          <div className="col-lg-4">
+          <div className="col-lg-4" style={{textAlign:'center'}}>
+            <img className="rounded-circle"  src="/assets/painting.jpg" alt="Generic placeholder image" width={140} height={140} />
+            <h2>Heading</h2>
+            <p>Discover the world of art & craft with KMPR.com. KMPR.com is an online marketplace that helps art collectors/lovers and enthusiasts to buy and sell art with ease from any part of the world. KMPR.com caters to original art (art investment), sculpture, digital prints, craft, home decor and many more. 
+              Explore our online art gallery and grab your choice of painting or portraits or craft.</p>
+            <p><a className="btn btn-outline-primary" href="#" role="button">View details »</a></p>
+          </div>{/* /.col-lg-4 */}
+          <div className="col-lg-4"style={{textAlign:'center'}}>
             <img className="rounded-circle" src="/assets/painting.jpg" alt="Generic placeholder image" width={140} height={140} />
             <h2>Heading</h2>
             <p>Discover the world of art & craft with KMPR.com. KMPR.com is an online marketplace that helps art collectors/lovers and enthusiasts to buy and sell art with ease from any part of the world. KMPR.com caters to original art (art investment), sculpture, digital prints, craft, home decor and many more. 
               Explore our online art gallery and grab your choice of painting or portraits or craft.</p>
             <p><a className="btn btn-outline-primary" href="#" role="button">View details »</a></p>
           </div>{/* /.col-lg-4 */}
-          <div className="col-lg-4">
-            <img className="rounded-circle" src="/assets/painting.jpg" alt="Generic placeholder image" width={140} height={140} />
-            <h2>Heading</h2>
-            <p>Discover the world of art & craft with KMPR.com. KMPR.com is an online marketplace that helps art collectors/lovers and enthusiasts to buy and sell art with ease from any part of the world. KMPR.com caters to original art (art investment), sculpture, digital prints, craft, home decor and many more. 
-              Explore our online art gallery and grab your choice of painting or portraits or craft.</p>
-            <p><a className="btn btn-outline-primary" href="#" role="button">View details »</a></p>
-          </div>{/* /.col-lg-4 */}
-          <div className="col-lg-4">
+          <div className="col-lg-4"style={{textAlign:'center'}}>
             <img className="rounded-circle" src="/assets/painting.jpg" alt="Generic placeholder image" width={140} height={140} />
             <h2>Heading</h2>
             <p>Discover the world of art & craft with KMPR.com. KMPR.com is an online marketplace that helps art collectors/lovers and enthusiasts to buy and sell art with ease from any part of the world. KMPR.com caters to original art (art investment), sculpture, digital prints, craft, home decor and many more. 
