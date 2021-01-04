@@ -5,15 +5,13 @@ export class Signup extends Component {
     constructor(props) { 
         super(props);  
         this.state = { 
-        email: '',  
-        password: '',  
-        errormessage: '' ,
         err_mail:'',
-        err_pass:'',
+        err_pass1:'',
+        err_pass2:'',
         err_name:'',
-        fields: {},
-        errors: {}
+        err_phone:'',
         }; }
+        
         
         myChangeHandler = (event) => 
         { 
@@ -21,118 +19,87 @@ export class Signup extends Component {
             let val = event.target.value;  
             let err = ''; 
             let err_mail='';
-            let err_pass='';
+            let err_name='';
+            let err_phone='';
+            if (nam === "name") { 
+                if (val=="") 
+                { 
+                    err_name = <small style={{color:'red'}}>Name is compulsory field</small>
+                } 
+            }
+            if (nam === "name") {
+                console.log(val) 
+                if (!val.match(/^[a-zA-Z]+$/)) 
+                {
+                    err_name = <small style={{color:'red'}}>Numbers are not allowed</small>  
+                } 
+            }
             if (nam === "email") { 
                 if (val=="") 
                 { 
-                    err_mail = <small style={{color:'red'}}>Enter valid email</small>
-                    //err_mail=<small class="invalid-feedback">Please provide a valid zip.</small>
+                    err_mail = <small style={{color:'red'}}>Email is compulsory field</small>
                 } 
             }
-            if (nam === "password")
-            {
-                if (val.length<8)
+            if (nam === "email") { 
+                let lastAtPos = val.lastIndexOf('@');
+                let lastDotPos = val.lastIndexOf('.');
+                if (!(lastAtPos < lastDotPos && lastAtPos > 0 &&val.indexOf('@@') == -1 && lastDotPos > 2 && (val.length - lastDotPos) > 2)) 
+                { 
+                    err_mail = <small style={{color:'red'}}>Invalid Email</small>
+                    
+                } 
+            }
+            if (nam === "phone") { 
+                if (val=="") 
+                { 
+                    err_phone = <small style={{color:'red'}}>Mobile number is compulsory field</small>
+                } 
+                else if (val.length!=10) 
+                { 
+                    err_phone = <small style={{color:'red'}}>Invalid mobile number</small>
+                }
+                if (val.match(/^[a-zA-Z]+$/)) 
                 {
-                    // err_pass = <strong class="alert alert-danger">Invalid email or password</strong>; 
-                    err_pass = <small style={{color:'red'}}>Enter valid password</small>
+                    err_phone = <small style={{color:'red'}}>Letters are not allowed</small>  
+                }  
+            }
+            let err_pass2=''
+            let err_pass1=''
+            if (nam === "pass1")
+            {
+                if (val.length<6)
+                {
+                    err_pass1 = <small style={{color:'red'}}>Minimum six letters are require</small>
+                }
+                else if(val.length>10)
+                {
+                    err_pass1 = <small style={{color:'red'}}>Password is too long</small>
+                }
+            }
+            if (nam === "pass2")
+            {
+                if (val.length<6)
+                {
+                    err_pass1 = <small style={{color:'red'}}>Minimum six letters are require</small>
+                }
+                else if(val.length>10)
+                {
+                    err_pass1 = <small style={{color:'red'}}>Password is too long</small>
                 }
             }
             this.setState({err_mail: err_mail}); 
-            this.setState({err_pass: err_pass}); 
+            this.setState({err_name: err_name}); 
+            this.setState({err_pass1: err_pass1});
+            this.setState({err_pass2: err_pass2}); 
             this.setState({errormessage: err});  
+            this.setState({err_phone: err_phone});
             this.setState({[nam]: val}); 
         }
-        contactSubmit(e){
-            e.preventDefault();
-
-            if(this.handleValidation()){
-               alert("Form submitted");
-            }else{
-               alert("Form has errors.")
-            }
-      
-        }
-        handleChange(field, e){         
-            let fields = this.state.fields;
-            fields[field] = e.target.value;        
-            this.setState({fields});
-        }
-        handleValidation(){
-            let fields = this.state.fields;
-            let errors = {};
-            let formIsValid = true;
-            let err_name='';
-            let err_mail='';
-
-            //Name
-            if(!fields["name"]){
-               formIsValid = false;
-               errors["name"] = "Cannot be empty";
-                err_name=<small style={{color:'red'}}>Field is compulsory</small>
-            }
-      
-            if(typeof fields["name"] !== "undefined"){
-               if(!fields["name"].match(/^[a-zA-Z]+$/)){
-                  formIsValid = false;
-                  err_name=<small style={{color:'red'}}>Numbers are not allowed</small>
-               }        
-            }
        
-            //Email
-            if(!fields["email"]){
-               formIsValid = false;
-               err_mail=<small style={{color:'red'}}>Field is compulsory</small>
-            }
       
-            if(typeof fields["email"] !== "undefined"){
-               let lastAtPos = fields["email"].lastIndexOf('@');
-               let lastDotPos = fields["email"].lastIndexOf('.');
-
-               if (!(lastAtPos < lastDotPos && lastAtPos > 0 && fields["email"].indexOf('@@') == -1 && lastDotPos > 2 && (fields["email"].length - lastDotPos) > 2)) {
-                  formIsValid = false;
-                  err_mail=<small style={{color:'red'}}>Enter valid Email address</small>
-                }
-           }  
-
-           this.setState({errors: errors});
-           return formIsValid;
-       }handleValidation(){
-        let fields = this.state.fields;
-        let errors = {};
-        let formIsValid = true;
-
-        //Name
-        if(!fields["name"]){
-           formIsValid = false;
-           errors["name"] = "Cannot be empty";
-        }
-  
-        if(typeof fields["name"] !== "undefined"){
-           if(!fields["name"].match(/^[a-zA-Z]+$/)){
-              formIsValid = false;
-              errors["name"] = "Only letters";
-           }        
-        }
    
-        //Email
-        if(!fields["email"]){
-           formIsValid = false;
-           errors["email"] = "Cannot be empty";
-        }
-  
-        if(typeof fields["email"] !== "undefined"){
-           let lastAtPos = fields["email"].lastIndexOf('@');
-           let lastDotPos = fields["email"].lastIndexOf('.');
-
-           if (!(lastAtPos < lastDotPos && lastAtPos > 0 && fields["email"].indexOf('@@') == -1 && lastDotPos > 2 && (fields["email"].length - lastDotPos) > 2)) {
-              formIsValid = false;
-              errors["email"] = "Email is not valid";
-            }
-       }  
-
-       this.setState({errors: errors});
-       return formIsValid;
-   }
+       
+      
     render() {
         return (
             <div><br></br>
@@ -140,40 +107,38 @@ export class Signup extends Component {
             <div className="container-sm border pt-3" style={{maxWidth:'500px'}}>
                     <h5 class="card-header" style={{ textAlign: 'center', backgroundColor: 'white' }}>Create Account</h5>
                     <div class="card-body">
-                        <form method="post" onSubmit= {this.contactSubmit.bind(this)}>
+                    {/* onSubmit= {this.contactSubmit.bind(this)} */}
+                        <form method="post" >
                         <div class="form-group" >
                                 <label>Full name:</label>
-                                <input type="text" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter full name" onChange={this.myChangeHandler} />
-                                {this.state.err_mail}
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Enter full name" onChange={this.myChangeHandler} />
+                                {this.state.err_name}
                                 {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
                             </div>
                             <div class="form-group" >
                                 <label>Email address:</label>
-                                <input type="text" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email" onChange={this.myChangeHandler} />
+                                <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email" onChange={this.myChangeHandler} />
                                 {this.state.err_mail}
                                 {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
                             </div>
+                            <div class="form-group" >
                             <label>Mobile number:</label>
                             <div class="form-group input-group" >
-                            
                             <div class="custom-select" style={{maxWidth: '60px'}}><label>+91</label></div>
-                                
-                                <input type="text" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter mobile number" onChange={this.myChangeHandler} />
-                                {this.state.err_mail}
-                                {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
-                            </div>
+                            <input type="text" class="form-control" name="phone"  placeholder="Enter mobile number" onChange={this.myChangeHandler} />
+                            </div>{this.state.err_phone}</div>
                             
                             
 
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" class="form-control" name="password" placeholder="Password" onChange={this.myChangeHandler}/>
+                                <input type="password" class="form-control"  name="pass1" placeholder="Password" onChange={this.myChangeHandler}/>
                                 
                                 {this.state.err_pass}
                             </div>
                             <div class="form-group">
                                 <label>Confirm Password</label>
-                                <input type="password" class="form-control" name="password" placeholder="Password" onChange={this.myChangeHandler}/>
+                                <input type="password" class="form-control"   name="pass2" placeholder="Password" onChange={this.myChangeHandler}/>
                                 
                                 {this.state.err_pass}
                             </div>

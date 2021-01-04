@@ -13,13 +13,10 @@ const Cart = () => {
         );
     }
   };
-  return        <div class="container">
-                <div class="row">
-                <div class="col-md-4"><div>{plist.map(renderCard)}</div></div>
-                <div class="col-md-4"><div>{plist.map(renderCard)}</div></div>
-                <div class="col-md-4"><div>{plist.map(renderCard)}</div></div>
+  return   <div className="grid">{plist.map(renderCard)}</div>;
+               
                 
-                </div></div>;
+                
 };
 
 export default Cart;
