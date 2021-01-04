@@ -18,50 +18,6 @@ import Cart from './components/Cart';
 
 const routing = (
   <Router>
-
-
-      {/* <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        
-          <ul class="navbar-nav">
-            
-            <li class="nav-item active">
-              <a class="nav-link">
-              <Link to="/">Home</Link></a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link">
-              <Link to="/Add-Art">Add Art</Link></a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link">
-              <Link to="/contactUs">Contactus</Link></a>
-            </li>
-            <li class="nav-item"><a class="nav-link"><Link to="/login">
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
-              LOGIN / SIGNUP</button></Link></a></li>
-             <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Profile
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            
-          <a class="dropdown-item">
-          <li class="nav-item"><a class="nav-link"><Link to="/Login">
-           
-              LOGIN / SIGNUP</Link></a></li></a>
-
-          <a class="dropdown-item"><Link to="/Add-Art">Add Art</Link></a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" ><Link to="/Add-Art">Add Art</Link></a>
-        </div>
-        </a></li>
-          </ul>
-        </div>
-      </nav> */}
   <NavbarComp></NavbarComp>
   <Switch>
   <Route exact path="/" component={App} />

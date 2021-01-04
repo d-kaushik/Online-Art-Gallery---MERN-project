@@ -1,15 +1,33 @@
 import React, { Component } from 'react'
 import { Link,Switch } from 'react-router-dom'
-import {GraphDemo}  from "./GraphDemo"
+import GraphsDemo from './GraphDemo'
+import ReactDOM from 'react-dom';
+import ArtPost from '../components/ArtPost'
+import { Route, BrowserRouter as Router } from 'react-router-dom'
+
+
 export class Dashboard extends Component {
+    routing = (
+    <Router>
+    <Switch>
+    <Route path="/Add-Art" component={ArtPost} />
+    </Switch>
+    </Router>);
+     
+
     render() {
+        //ReactDOM.render(<ArtPost></ArtPost>,document.getElementById('services'));
         return (
-            <div class="row">
+            <div class="row" >
                 <aside class="col-sm-3"><br></br>
                     <div class="card">
                     <Link to="/Add-Art">
-                    <button type="submit" class="btn btn-outline-primary" >Add new Art</button>
+                    <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-outline-primary" >Add new art</button>
+                            </div>
                     </Link>
+                    
+
       
                         <article class="card-group-item">
                             <header class="card-header">
@@ -39,10 +57,59 @@ export class Dashboard extends Component {
 	                    </article>
 
                         
+                </div>
+                </aside>
+
+                <aside class="col" >
+                <div>
+              
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          See Art Information
+        </button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Information of Art</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <h1>Graph Info</h1>
+                <GraphsDemo></GraphsDemo>
+                <dashboardinfo></dashboardinfo>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+ 
+  
+   
+                </aside>
+              
+<div id='services'></div>
+
+
 </div>
-</aside></div>
         )
     }
 }
+// const routing = (
+//     <Router>
+//     <Switch>
+//     <Route path="/Add-Art" component={ArtPost} />
+//     </Switch>
+//     </Router>)
+// // ReactDOM.render(
+// //     routing,
+// //     document.getElementById("dash")
+// //   );
+// ReactDOM.render(<ArtPost></ArtPost>, 
+//     document.getElementById('service'));
 
 export default Dashboard

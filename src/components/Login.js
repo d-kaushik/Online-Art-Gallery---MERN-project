@@ -65,7 +65,9 @@ export class Login extends Component {
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" />
                                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
                             </div> */}
-                            <button type="submit" class="btn btn-outline-primary">Submit</button>
+                            <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-outline-primary" >Login</button>
+                            </div>
                         </form>
 
                         <br></br>

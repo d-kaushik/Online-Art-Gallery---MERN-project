@@ -73,7 +73,9 @@ export class ArtPost extends Component {
                 <label>Upload image:  </label>
             <input type="file" class="form-control-file border" name="file"/>
             </div>
-                            <button type="submit" class="btn btn-primary">Share Painting</button>
+            <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-outline-primary" >Add creativity</button>
+                            </div>
                         </form>
                 </div>
 
