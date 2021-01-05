@@ -57,9 +57,8 @@ export class NavbarComp extends Component {
 <Nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light" style={{backgroundColor:'white', padding:'15px'}} >
   <Link to="/">
   
-  <img style={{}}
+  <img style={{marginTop:'0'}}
             src={"/assets/logo.png"}
-            
             height="50"
             alt=""
             loading="lazy"
