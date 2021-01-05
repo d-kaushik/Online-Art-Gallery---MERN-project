@@ -7,7 +7,7 @@ const state = {
              'April', 'May'],
     datasets: [
       {
-        label: 'Rainfall',
+        label: 'Likes',
         backgroundColor: [
           '#B21F00',
           '#C9DE00',
@@ -36,7 +36,7 @@ export class Graphs extends Component {
           options={{
             title:{
               display:true,
-              text:'Average Rainfall per month',
+              text:'Average Likes per month',
               fontSize:20
             },
             legend:{
@@ -51,7 +51,7 @@ export class Graphs extends Component {
           options={{
             title:{
               display:true,
-              text:'Average Rainfall per month',
+              text:'Number of buyer per month',
               fontSize:20
             },
             legend:{

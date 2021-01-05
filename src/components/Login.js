@@ -61,17 +61,32 @@ export class Login extends Component {
                                 
                                 {this.state.err_pass}
                             </div>
-                            {/* <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div> */}
+                            <div className="row md-4">
+                            <div class="col">
+                            <a href="#!">Forgot password?</a>
+                            </div>
+                            
+                            </div>
+                            <br></br>
                             <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-outline-primary" >Login</button>
+                            <button type="submit" class="btn btn-outline-primary btn-block mb-2" >Login</button>
                             </div>
                         </form>
 
                         <br></br>
-                        <label>Create new acoount? <Link to="/signup"><u style={{color:'#007BFF'}}><strong style={{color:'#007BFF'}}>SIGNUP</strong></u></Link></label>
+                        {/* <label>Create new acoount? <Link to="/signup"><u style={{color:'#007BFF'}}><strong style={{color:'#007BFF'}}>SIGNUP</strong></u></Link></label> */}
+                        <div class="text-center">
+    <p>Not a member? <a><Link to="/signup"><u style={{color:'#007BFF'}}><strong style={{color:'#007BFF'}}>Register</strong></u></Link></a></p>
+    <p>or sign up with:</p>
+    <button type="button" class="btn btn-primary btn-floating mx-1">
+      <i class="fab fa-facebook-f"></i>
+    </button>
+
+    <button type="button" class="btn btn-primary btn-floating mx-1">
+      <i class="fab fa-google"></i>
+    </button>
+    
+  </div>
                     </div>
                 </div>
              </div>

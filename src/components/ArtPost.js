@@ -68,11 +68,11 @@ export class ArtPost extends Component {
                                 <div class="form-group" >   
                             <label>Description:</label>
                             <textarea type="text" className="form-control" rows="3" /></div>
-                             
-            <div class="form-group">
+                            <div class="form-group">
                 <label>Upload image:  </label>
             <input type="file" class="form-control-file border" name="file"/>
             </div>
+             
             <div class="d-flex justify-content-center">
                             <button type="submit" class="btn btn-outline-primary" >Add creativity</button>
                             </div>

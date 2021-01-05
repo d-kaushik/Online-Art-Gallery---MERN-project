@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Footer from "./Footer"
 
 // import "./CardLayout.css";
 import plist from "../assests/PaintingList";
@@ -18,7 +19,9 @@ const Wishlist = () => {
         );
     }
   };
-  return <div className="grid">{plist.map(renderCard)}</div>;
+  return <div><div className="grid">{plist.map(renderCard)}</div>
+  <Footer></Footer>
+</div>;
 };
 
 export default Wishlist;

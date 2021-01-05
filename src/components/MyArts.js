@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import "./CardLayout.css";
+import plist1 from "../assests/MyPaintingList";
 import plist from "../assests/PaintingList";
 import {Cards} from './Cards';
-import Footer from "./Footer"
 const Cart = () => {
 
   const renderCard = (card, index) => {
@@ -10,13 +10,11 @@ const Cart = () => {
     if(card.carted)
     {
         return (    
-            <Cards index={index} title={card.title} artist={card.artist} currency={card.currency} price={card.price} desc={card.desc} cart={card.carted}></Cards> 
+            <Cards index={index} title={card.title} artist={card.artist} desc={card.desc} ></Cards> 
         );
     }
   };
-  return <div><div className="grid">{plist.map(renderCard)}</div>
-  <Footer></Footer>
-</div>;
+  return <div className="grid">{plist.map(renderCard)}</div>;
                
                 
                 

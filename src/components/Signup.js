@@ -123,10 +123,8 @@ export class Signup extends Component {
                             </div>
                             <div class="form-group" >
                             <label>Mobile number:</label>
-                            <div class="form-group input-group" >
-                            <div class="custom-select" style={{maxWidth: '60px'}}><label>+91</label></div>
                             <input type="text" class="form-control" name="phone"  placeholder="Enter mobile number" onChange={this.myChangeHandler} />
-                            </div>{this.state.err_phone}</div>
+                            </div>{this.state.err_phone}
                             
                             
 

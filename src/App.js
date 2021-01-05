@@ -4,8 +4,8 @@ import './Footer.css';
 import ReactDOM from 'react-dom';
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 import { Link,Switch } from 'react-router-dom'
-import Explore from './components/Explore';
-import ArtPost from './components/ArtPost';
+// import Explore from './components/Explore';
+// import ArtPost from './components/ArtPost';
 import Footer from './components/Footer';
 
 
@@ -15,9 +15,9 @@ function App() {
   const handleEvent = (event) => {
     
     <div class="text-center">
-    <Link to="/Explore">
-      <button  type="button" class="btn btn-outline-dark" >Explore</button>
-      </Link>
+      <Link to="/Explore">
+        <button  type="button" class="btn btn-outline-dark" >Explore</button>
+        </Link>
     </div>
    }
   return (
