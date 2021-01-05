@@ -67,7 +67,7 @@ export class NavbarComp extends Component {
          
       </Link>
   
-  <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -111,7 +111,7 @@ export class NavbarComp extends Component {
           class="nav-link dropdown-toggle"
           id="navbarDropdownMenuLink"
           role="button"
-          data-toggle="dropdown"
+          data-bs-toggle="dropdown"
           aria-expanded="false"
           aria-haspopup="true"
         >
@@ -124,10 +124,10 @@ export class NavbarComp extends Component {
           />
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li><a class="dropdown-item" href="#"><Link to='/signup' >My profile</Link></a></li>
+          <li><a class="dropdown-item" href="#"><Link to='/profile' >My profile</Link></a></li>
           <li><a class="dropdown-item" href="#"><Link to='/signup' >Settings</Link></a></li>
           <div class="dropdown-divider"></div>
-          <li><a class="dropdown-item" href="#"><Link to='/signup' >Logout</Link></a></li>
+          <li><a class="dropdown-item" ><Link to='/signup' >Logout</Link></a></li>
         </ul>
       </li>
       </li>
@@ -138,17 +138,6 @@ export class NavbarComp extends Component {
       <li class="nav-item me-3 me-lg-1">
       <Nav.Link><Link to="/wishlist"><i class="fas fa-heart"></i>
       <span class="badge rounded-pill badge-notification bg-danger">2</span></Link></Nav.Link>
-      {/* <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
-        <i class="fas fa-user" ></i>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" ><Link to='/art-works' >My Profile</Link></a>
-          <a class="dropdown-item"><Link to='/art-works' >Settings</Link></a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" ><Link to='/signup' >Sign in</Link></a>
-        </div>
-      </li> */}
       </li>
       
     </ul>

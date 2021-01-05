@@ -15,6 +15,8 @@ import NavbarComp from './components/NavbarComp';
 import Dashboard from './components/Dashboard';
 import Wishlist from './components/Wishlist';
 import Cart from './components/Cart';
+import Profile from './components/Profile';
+import NotFound from './components/NotFound';
 
 const routing = (
   <Router>
@@ -29,6 +31,8 @@ const routing = (
   <Route path="/dashboard" component={Dashboard}/>
   <Route path="/wishlist" component={Wishlist}/>
   <Route path="/cart" component={Cart}/>
+  <Route path="/profile" component={Profile}/>
+  <Route component={NotFound}/>
   </Switch>
   </Router>)
 

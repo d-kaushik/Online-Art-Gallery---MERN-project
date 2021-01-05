@@ -10,10 +10,7 @@ const AllArts = () => {
       <Cards index={index} title={card.title} artist={card.artist} currency={card.currency} price={card.price} desc={card.desc} cart={card.carted}></Cards>
     );
   };
-  return <div>
-    <div className="grid">{plist.map(renderCard)}</div>
-    <Footer></Footer>
-  </div>;
+  return <div className="grid">{plist.map(renderCard)}</div>;
 };
 
 export default AllArts;
