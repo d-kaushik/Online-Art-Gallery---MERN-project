@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "./CardLayout.css";
 import plist1 from "../assests/MyPaintingList";
 import plist from "../assests/PaintingList";
-import {Cards} from './Cards';
+import {Cards} from './MyArtCards';
 const Cart = () => {
 
   const renderCard = (card, index) => {
@@ -13,7 +13,7 @@ const Cart = () => {
             <Cards 
             index={index}
           title={card.title}
-          artist={card.artist}
+          desc={card.desc}
           
             ></Cards> 
         );
