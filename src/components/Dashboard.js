@@ -37,7 +37,7 @@ export class Dashboard extends Component {
                 </header>
                 <div class="filter-content">
                   <div class="card-body">
-                    <form>
+                    {/* <form>
 
                       <div class="card">
                         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light" data-bs-toggle="modal"
@@ -69,7 +69,7 @@ export class Dashboard extends Component {
 
 
 
-                    </form>
+                    </form> */}
                   </div>
                 </div>
               </article>
@@ -79,12 +79,14 @@ export class Dashboard extends Component {
 
           {this.state.formActive ? (
             <aside class="col">
+              
               <ArtPost />
 
             </aside>
           ) : (
               <aside class="col">
-
+                <br></br>
+                <h3 style={{color:'blue'}}>My Arts</h3>
                 <MyArts></MyArts>
               </aside>
             )}

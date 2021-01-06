@@ -10,7 +10,12 @@ const Cart = () => {
     if(card.carted)
     {
         return (    
-            <Cards index={index} title={card.title} artist={card.artist} desc={card.desc} ></Cards> 
+            <Cards 
+            index={index}
+          title={card.title}
+          artist={card.artist}
+          
+            ></Cards> 
         );
     }
   };

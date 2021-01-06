@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import dummy from "./dummyAvatar.png";
+import "./Signup.css";
 export class Signup extends Component {
   constructor(props) {
     super(props);
@@ -11,9 +12,18 @@ export class Signup extends Component {
       err_name: "",
       err_phone: "",
       pass1: "",
+      profileImg: dummy,
     };
   }
-
+  imageHandler = (e) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        this.setState({ profileImg: reader.result });
+      }
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  };
   myChangeHandler = (event) => {
     let nam = event.target.name;
     let val = event.target.value;
@@ -111,6 +121,7 @@ export class Signup extends Component {
   };
 
   render() {
+    const profileImg = this.state.profileImg;
     return (
       <div>
         <br></br>
@@ -124,6 +135,23 @@ export class Signup extends Component {
           >
             Create Account
           </h5>
+          <div>
+            <div className="container_profile">
+              <div className="img-holder">
+                <img src={profileImg} alt="" id="img" className="img" />
+              </div>
+              <input
+                type="file"
+                accept="image/*"
+                name="image-upload"
+                id="input"
+                onChange={this.imageHandler}
+              />
+              <label className="image-upload" htmlFor="input">
+                <span class="badge bg-primary">Upload Image</span>
+              </label>
+            </div>
+          </div>
           <div class="card-body">
             <form method="post">
               <div class="form-group">

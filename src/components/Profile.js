@@ -1,64 +1,110 @@
 import React, { Component } from 'react'
-
+import ReactDOM from 'react-dom';
+import Signup from './Signup'
+import { Route, BrowserRouter as Router } from 'react-router-dom'
+import {Navbar, NavDropdown, FormControl, Form, Nav, Button} from 'react-bootstrap'
+import { Link,Switch } from 'react-router-dom'
 export class Profile extends Component {
+  
+  
     render() {
+      const routing = (
+        <Router>
+        <Route path="/signup" component={Signup}/>
+        </Router>)
+      
+      
         return (
-            <div>
-        {/* For demo purpose */}
-        <div className="row">
-          <div className="col-lg-7 mx-auto text-white text-center pt-5">
-            <h1 className="display-4">Bootstrap 4 profile page</h1>
-            <p className="lead mb-0">Easily create a profile widget using bootstrap 4.</p>
-            <p className="lead">Snippet by <a href="https://bootstrapious.com/snippets" className="text-white">
-                <u>Bootstrapious</u></a>
-            </p>
-          </div>
-        </div>{/* End */}
-        <div className="row py-5 px-4">
-          <div className="col-xl-4 col-md-6 col-sm-10 mx-auto">
-            {/* Profile widget */}
-            <div className="bg-white shadow rounded overflow-hidden">
-              <div className="px-4 pt-0 pb-4 bg-dark">
-                <div className="media align-items-end profile-header">
-                  <div className="profile mr-3"><img src="https://d19m59y37dris4.cloudfront.net/university/1-1-1/img/teacher-4.jpg" alt="..." width={130} className="rounded mb-2 img-thumbnail" /><a href="#" className="btn btn-dark btn-sm btn-block">Edit profile</a></div>
-                  <div className="media-body mb-5 text-white">
-                    <h4 className="mt-0 mb-0">Manuella Tarly</h4>
-                    <p className="small mb-4"> <i className="fa fa-map-marker mr-2" />San Farcisco</p>
+    
+      <div className="container">
+        <br></br>
+        {/* <div className="main-body"> */}
+          {/* Breadcrumb */}
+          {/* <nav aria-label="breadcrumb" className="main-breadcrumb">
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li className="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
+              <li className="breadcrumb-item active" aria-current="page">User Profile</li>
+            </ol>
+          </nav> */}
+          {/* /Breadcrumb */}
+          <div className="row gutters-sm">
+            <div className="col-md-4 mb-3">
+              <div className="card">
+                <div className="card-body">
+                  <div className="d-flex flex-column align-items-center text-center">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" className="rounded-circle" width={150} />
+                    <div className="mt-3">
+                      <h4>Kaushik Daspute</h4>
+                      {/* <p className="text-secondary mb-1">Full Stack Developer</p>
+                      <p className="text-muted font-size-sm">Bay Area, San Francisco, CA</p> */}
+                      <button className="btn btn-outline-primary">LogOut</button>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="bg-light p-4 d-flex justify-content-end text-center">
-                <ul className="list-inline mb-0">
-                  <li className="list-inline-item">
-                    <h5 className="font-weight-bold mb-0 d-block">241</h5><small className="text-muted"> <i className="fa fa-picture-o mr-1" />Photos</small>
+              <div className="card mt-3">
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item ">
+                    <h6>My Profile</h6>
                   </li>
-                  <li className="list-inline-item">
-                    <h5 className="font-weight-bold mb-0 d-block">84K</h5><small className="text-muted"> <i className="fa fa-user-circle-o mr-1" />Followers</small>
+                  <li className="list-group-item ">
+                    <h6>Dashboard</h6>
+                  </li>
+                  <li className="list-group-item ">
+                    <h6>Add new Creativity</h6>
                   </li>
                 </ul>
               </div>
-              <div className="py-4 px-4">
-                <div className="d-flex align-items-center justify-content-between mb-3">
-                  <h5 className="mb-0">Recent photos</h5><a href="#" className="btn btn-link text-muted">Show all</a>
-                </div>
-                <div className="row">
-                  <div className="col-lg-6 mb-2 pr-lg-1"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294928/nicole-honeywill-546848-unsplash_ymprvp.jpg" alt="" className="img-fluid rounded shadow-sm" /></div>
-                  <div className="col-lg-6 mb-2 pl-lg-1"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294927/dose-juice-1184444-unsplash_bmbutn.jpg" alt="" className="img-fluid rounded shadow-sm" /></div>
-                  <div className="col-lg-6 pr-lg-1 mb-2"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294926/cody-davis-253925-unsplash_hsetv7.jpg" alt="" className="img-fluid rounded shadow-sm" /></div>
-                  <div className="col-lg-6 pl-lg-1"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294928/tim-foster-734470-unsplash_xqde00.jpg" alt="" className="img-fluid rounded shadow-sm" /></div>
-                </div>
-                <div className="py-4">
-                  <h5 className="mb-3">Recent posts</h5>
-                  <div className="p-4 bg-light rounded shadow-sm">
-                    <p className="font-italic mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <ul className="list-inline small text-muted mt-3 mb-0">
-                      <li className="list-inline-item"><i className="fa fa-comment-o mr-2" />12 Comments</li>
-                      <li className="list-inline-item"><i className="fa fa-heart-o mr-2" />200 Likes</li>
-                    </ul>
+            </div>
+
+            <div className="col-md-8">
+            <div
+              // className="container border pt-3 "
+              // style={{ maxWidth: "500px" }}
+              >
+         
+
+            
+              <h5
+                class="card-header"
+                style={{ textAlign: "center", backgroundColor: "white" }}
+              >
+                My Profile
+              </h5>
+              <div className="card mb-3">
+                <div className="card-body">
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Full Name</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      Kaushik Daspute
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Email</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      kaushik.daspute@lntinfotech.com
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Phone</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      +91 7030381020
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>{/* End profile widget */}
+              <label style={{color:'red'}} ><Link to="/signup">Edit Profile</Link></label>
+            </div>
+            <div id="service"></div>
           </div>
         </div>
       </div>

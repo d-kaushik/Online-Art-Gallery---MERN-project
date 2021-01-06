@@ -9,7 +9,7 @@ export class Explore extends Component {
 
 <div>
 <div class="row">
-<aside class="col-sm-3"><br></br>
+<aside class="col-sm-2" style={{}}><br></br>
     <div class="card">
         <article class="card-group-item">
             <header class="card-header">

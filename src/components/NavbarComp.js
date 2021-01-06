@@ -55,16 +55,16 @@ export class NavbarComp extends Component {
           //   </Navbar>
 
 <Nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light" style={{backgroundColor:'white', padding:'15px'}} >
-  <Link to="/">
+<a class="navbar-brand" href="$"><Link to="/">
   
-  <img style={{marginTop:'0'}}
+  <img 
             src={"/assets/logo.png"}
             height="50"
             alt=""
             loading="lazy"
           />
-         
-      </Link>
+    
+      </Link></a>
   
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -73,16 +73,16 @@ export class NavbarComp extends Component {
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ">
-      <Nav.Link style={{marginLeft:'30px',marginRight:'30px'}}><Link to="/"><strong>Home</strong></Link></Nav.Link> 
+      <Nav.Link style={{marginLeft:'30px',marginRight:'30px'}}><Link to="/"><strong>HOME</strong></Link></Nav.Link> 
       </li>
       <li class="nav-item">
-      <Nav.Link style={{marginLeft:'30px', marginRight:'30px'}}> <Link to="/dashboard"><strong>Dashboard</strong></Link></Nav.Link>
+      <Nav.Link style={{marginLeft:'30px', marginRight:'30px'}}> <Link to="/dashboard"><strong>DASHBOARD</strong></Link></Nav.Link>
       </li>
       <li class="nav-item">
-      <Nav.Link style={{marginLeft:'30px', marginRight:'30px'}}> <Link to="/explore"><strong>Explore</strong></Link></Nav.Link>
+      <Nav.Link style={{marginLeft:'30px', marginRight:'30px'}}> <Link to="/explore"><strong>EXPLORE</strong></Link></Nav.Link>
       </li>
       <li class="nav-item">
-      <Nav.Link style={{marginLeft:'30px'}}> <Link to="/contactUs"><strong>Contact us</strong></Link></Nav.Link>
+      <Nav.Link style={{marginLeft:'30px'}}> <Link to="/contactUs"><strong>CONTACT US</strong></Link></Nav.Link>
       </li>
       
       
