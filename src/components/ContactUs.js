@@ -106,16 +106,27 @@ import Footer from "./Footer";
 export class ContactUs extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
-      email: "",
-      password: "",
-      errormessage: "",
-      err_mail: "",
-      err_name: "",
+      email: '',
+      password: '',
+      errormessage: '',
+      err_mail: '',
+      err_name: '',
+      name:'',
+      mail:'',
+      desc:'',
+      value:''
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.myChangeHandler = this.myChangeHandler.bind(this);
   }
-
-  myChangeHandler = (event) => {
+  
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.name);
+    event.preventDefault();
+  }
+  myChangeHandler  (event)  {
     let nam = event.target.name;
     let val = event.target.value;
     let err_mail = "";
@@ -158,9 +169,13 @@ export class ContactUs extends Component {
     }
     this.setState({ err_mail: err_mail });
     this.setState({ err_name: err_name });
-  };
+    this.setState({[nam]:val})
+  }
+
+
 
   render() {
+  
     return (
       <section class="Material-contact-section section-padding section-dark">
         <div class="container">
@@ -177,16 +192,15 @@ export class ContactUs extends Component {
                   Love to Hear From You
                 </h5>
                 <div class="card-body">
-                  <form method="post">
-                    <div class="form-group">
+                  <form  onSubmit={this.handleSubmit}>
+                    <div class="form-group" >
                       <label>Name:</label>
-                      <input
-                        type="text"
+                      <input type="text" 
+                      value={this.state.name}
                         class="form-control"
                         name="name"
-                        aria-describedby="emailHelp"
                         placeholder="Enter name"
-                        onChange={this.myChangeHandler}
+                        onChange={this.myChangeHandler} 
                       />
                       {this.state.err_name}
                     </div>
@@ -196,17 +210,24 @@ export class ContactUs extends Component {
                         type="text"
                         class="form-control"
                         name="email"
-                        aria-describedby="emailHelp"
+                        //value={this.state.mail} 
                         placeholder="Enter email"
                         onChange={this.myChangeHandler}
+                      
                       />
+                      
                       {this.state.err_mail}
+                    
                     </div>
                     <div class="form-group">
                       <label>Review</label>
-                      <textarea type="text" className="form-control" rows="3" />
+                      <textarea type="text" 
+                      className="form-control" 
+                      rows="3" 
+                     //value={this.state.desc} 
+                     />
                     </div>
-                    <button type="submit" class="btn btn-outline-primary">
+                    <button type="submit" class="btn btn-outline-primary" >
                       Submit
                     </button>
                   </form>
@@ -237,4 +258,39 @@ export class ContactUs extends Component {
   }
 }
 
-export default ContactUs;
+
+
+
+
+// export class ContactUs extends Component {
+//     constructor(props) {
+//       super(props);
+//       this.state = {value: ''};
+  
+//       this.handleChange = this.handleChange.bind(this);
+//       this.handleSubmit = this.handleSubmit.bind(this);
+//     }
+  
+//     handleChange(event) {
+//       this.setState({value: event.target.value});
+//     }
+  
+//     handleSubmit(event) {
+//       alert('A name was submitted: ' + this.state.value);
+//       event.preventDefault();
+//     }
+  
+//     render() {
+//       return (
+//         <form onSubmit={this.handleSubmit}>
+//           <label>
+//             Name:
+//             <input type="text" value={this.state.value} onChange={this.handleChange} />
+//           </label>
+//           <input type="submit" value="Submit" />
+//         </form>
+//       );
+//     }
+//   }
+
+  export default ContactUs;

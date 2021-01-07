@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export class ArtPost extends Component {
+export class AddArtFormProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,11 +26,7 @@ export class ArtPost extends Component {
     let err_file = "";
     let err_pname = "";
     let err_dime = "";
-    // if (nam === "dime") {
-    //   if (!val.match(/^X$/)) {
-    //     err_dime = <small style={{ color: "red" }}>X reuired</small>;
-    //   }
-    // }
+   
     if (nam === "pname") {
       if (!val.match(/^[a-zA-Z]+$/)) {
         err_pname = (
@@ -84,19 +80,14 @@ export class ArtPost extends Component {
         <div class="modal-dialog">
           <div class="modal-content">
             <div style={{ maxWidth: "500px" }}>
-              <div class="modal-header">
+              <div class="card-header">
                 <h5
                   id="addArt"
                   style={{ textAlign: "center", backgroundColor: "white" }}
                 >
                   Add your creativity
-                </h5>{" "}
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
+                </h5>
+                
               </div>
 
               <div class="card-body">
@@ -206,4 +197,4 @@ export class ArtPost extends Component {
   }
 }
 
-export default ArtPost;
+export default AddArtFormProfile;
