@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import AllArts from "./AllArts";
+
 import "./CardLayout.css";
 import Footer from "./Footer";
 import { Cards } from "./Cards";
 import plist from "../assests/PaintingList";
+import { Link } from "react-router-dom";
 
 export class Explore extends Component {
+
   renderCard = (card, index) => {
     return (
       <Cards
@@ -188,10 +190,11 @@ export class Explore extends Component {
           </aside>
           <aside class="col-sm-9">
             <br></br>
-            <div className="grid">{plist.map(this.renderCard)}</div>
+            <Link to="/product-details">
+            <div className="grid" >{plist.map(this.renderCard)}</div></Link>
           </aside>
         </div>
-        <Footer></Footer>
+  
       </div>
     );
   }

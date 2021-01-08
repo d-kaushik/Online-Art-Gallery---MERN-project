@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom';
-import Signup from '../components/Signup'
-import { Route, BrowserRouter as Router } from 'react-router-dom'
-import { Navbar, NavDropdown, FormControl, Form, Nav, Button } from 'react-bootstrap'
 import ProfileCard from './ProfileCard';
 import ProfileMenu from './ProfileMenu';
 import MyProfile from './MyProfileComp';
-import AllArts from '../components/AllArts';
+
 import Footer from '../components/Footer';
 export class Profile extends Component {
 
@@ -29,7 +25,7 @@ export class Profile extends Component {
               </div>
             </div>
           </div>
-          <Footer></Footer>
+      
           </div>
     )
   }

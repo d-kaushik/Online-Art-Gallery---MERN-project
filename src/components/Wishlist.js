@@ -27,7 +27,7 @@ const Wishlist = () => {
   return (
     <div>
       <div className="grid">{plist.map(renderCard)}</div>
-      <Footer></Footer>
+   
     </div>
   );
 };

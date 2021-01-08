@@ -21,11 +21,12 @@ import AddArtProfile from './myProfile/AddArtProfile';
 import MyArtsProfile from './myProfile/MyArtsProfile';
 import ProductDetails from './components/ProductDetails';
 import Offers from './components/Offers';
-import Buy from './components/BuyComp';
 import EditProfile from './myProfile/EditProfile';
 import ChangePass from './myProfile/ChangePass';
+import Footer from './components/Footer';
 
 const routing = (
+  <div>
   <Router>
   <NavbarComp></NavbarComp>
   <Switch>
@@ -41,13 +42,15 @@ const routing = (
   <Route path="/profile" component={Profile}/>
   <Route path="/add-creativity" component={AddArtProfile}/>
   <Route path="/my-arts" component={MyArtsProfile}/>
-  <Route path="/product-detail" component={ProductDetails}/>
+  <Route path="/product-details" component={ProductDetails}/>
   <Route path="/offers" component={Offers}/>
-  <Route path="/checkout" component={Buy}/>
   <Route path="/edit-profile" component={EditProfile}/>
   <Route path="/change-password" component={ChangePass}/>
   </Switch>
-  </Router>)
+  </Router>
+  <Footer></Footer>
+  </div>
+  )
 
 ReactDOM.render(
   // <React.StrictMode>

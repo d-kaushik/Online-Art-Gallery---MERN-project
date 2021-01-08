@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link,Switch } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 export class ProfileMenu extends Component {
     render() {
         return (
@@ -8,9 +8,7 @@ export class ProfileMenu extends Component {
                   <li className="list-group-item ">
                     <h6><Link to="/profile">My Profile</Link></h6>
                   </li>
-                  <li className="list-group-item ">
-                    <h6><Link to="/my-arts">My Arts</Link></h6>
-                  </li>
+                  
                   <li className="list-group-item ">
                     <h6><Link to="/add-creativity">Add new Creativity</Link></h6>
                   </li>

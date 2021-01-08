@@ -78,7 +78,7 @@ export class NavbarComp extends Component {
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item" href="#"><Link to='/profile' >My profile</Link></a></li>
-                  <li><a class="dropdown-item" href="#"><Link to='/signup' >Settings</Link></a></li>
+                  <li><a class="dropdown-item" href="#" ><Link to='/signup' >Settings</Link></a></li>
                   <div class="dropdown-divider"></div>
                   <li><a class="dropdown-item" ><Link to='/signup' >Logout</Link></a></li>
                 </ul>

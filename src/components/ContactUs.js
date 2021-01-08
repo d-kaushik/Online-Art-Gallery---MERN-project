@@ -252,7 +252,7 @@ export class ContactUs extends Component {
             </div>
           </div>
         </div>
-        <Footer></Footer>
+       
       </section>
     );
   }

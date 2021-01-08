@@ -28,7 +28,7 @@ export class ChangePass extends Component {
                             </div></div></div>
                 </div>
             </div>
-            <Footer></Footer>
+
             </div>
         )
     }

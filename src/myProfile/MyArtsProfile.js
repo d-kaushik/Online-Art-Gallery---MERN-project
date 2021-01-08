@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
-import ArtPost from '../components/ArtPost'
 import ProfileCard from './ProfileCard';
 import ProfileMenu from './ProfileMenu';
-import MyProfile from './MyProfileComp';
-import Cart from '../components/MyArtCards'
-import Wishlist from '../components/Wishlist';
-import AllArts from '../components/AllArts';
 import { Cards } from "../components/Cards";
 import plist from "../assests/PaintingList";
 import Footer from '../components/Footer';

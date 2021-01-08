@@ -263,7 +263,7 @@ function App() {
         <hr className="featurette-divider" />
 
       </div>
-      <Footer></Footer>
+     
     </div>
 
 

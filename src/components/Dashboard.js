@@ -71,7 +71,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <Footer></Footer>
+    
       <div
         class="modal fade"
         id="exampleModal"
@@ -100,7 +100,7 @@ const Dashboard = () => {
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-primary btn-md mr-1 mb-2"
                 data-bs-dismiss="modal"
               >
                 Close

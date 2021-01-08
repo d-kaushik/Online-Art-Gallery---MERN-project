@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import ArtPost from '../components/ArtPost'
 import ProfileCard from './ProfileCard';
 import ProfileMenu from './ProfileMenu';
-import MyProfile from './MyProfileComp';
 import AddArtFormProfile from './AddArtFormProfile';
 import Footer from '../components/Footer';
 export class AddArtProfile extends Component {
@@ -24,7 +23,7 @@ export class AddArtProfile extends Component {
               </div>
             </div>
           </div>
-          <Footer></Footer>
+         
           </div>
         )
     }
