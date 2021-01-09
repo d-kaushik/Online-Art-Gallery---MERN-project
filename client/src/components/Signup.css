@@ -1,0 +1,25 @@
+.img-holder{
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    margin-top: 1rem;
+  }
+  .img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 100px;
+  }
+  #input[type="file"] {
+      display: none;
+  }
+  .label{
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  .container_profile{
+    text-align: center;
+  }
