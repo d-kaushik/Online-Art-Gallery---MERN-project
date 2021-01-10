@@ -1,5 +1,11 @@
-import { GET_ITEMS, ADD_ITEM, ITEM_LOADING } from "../actions/types";
-import axios from "axios";
+import {
+  GET_ITEMS,
+  ADD_ITEM,
+  ITEM_LOADING,
+  DELETE_ITEM,
+  UPDATE_ITEM,
+} from "../actions/types";
+
 const initialState = {
   items: [],
 };
@@ -12,12 +18,17 @@ const reducer = (state = initialState, action) => {
         items: action.payload,
         loading: false,
       };
-    // case ADD_ITEM: {
-    //   axios
-    //     .post("http://localhost:5000/artRoutes/add", action.payload)
-    //     .then((res) => console.log(res.data));
-    // }
     case ADD_ITEM:
+      return {
+        ...state,
+        items: [action.payload, ...state.items],
+      };
+    case DELETE_ITEM:
+      return {
+        ...state,
+        items: state.items.filter((item) => item._id !== action.payload),
+      };
+    case UPDATE_ITEM:
       return {
         ...state,
         items: [action.payload, ...state.items],
@@ -27,6 +38,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         loading: true,
       };
+
     default:
       return state;
   }

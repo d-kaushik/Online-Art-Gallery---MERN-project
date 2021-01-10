@@ -104,6 +104,7 @@ export class ArtPost extends Component {
       dimension: this.state.dimension,
       technique: this.state.technique,
       description: this.state.desc,
+      // path: this.state.path
     };
 
     console.log("inFunction" + newTodo);

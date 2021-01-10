@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import { addPainting } from "../../actions/itemActions";
-
+import { addPainting, updatePainting } from "../../actions/itemActions";
 
 export class AddArtFormProfile extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       email: "",
       password: "",
@@ -18,6 +18,7 @@ export class AddArtFormProfile extends Component {
       err_dime: "",
       err_tech: "",
       name: "Mrunali Narkhede",
+      _id: "",
       pname: "",
       category: "",
       price: "",
@@ -27,6 +28,18 @@ export class AddArtFormProfile extends Component {
     };
   }
 
+  componentDidMount() {
+    if (this.props.toBeUpdate != null) {
+      this.setState({
+        pname: this.props.toBeUpdate.painting_name,
+        category: this.props.toBeUpdate.category,
+        price: this.props.toBeUpdate.price,
+        dimension: this.props.toBeUpdate.dimension,
+        technique: this.props.toBeUpdate.technique,
+        desc: this.props.toBeUpdate.description,
+      });
+    }
+  }
   myChangeHandler = (event) => {
     let nam = event.target.name;
     let val = event.target.value;
@@ -93,8 +106,14 @@ export class AddArtFormProfile extends Component {
       description: this.state.desc,
     };
 
-    // console.log("newPainting" + newPainting.painting_name);
-    this.props.addPainting(newPainting);
+    if (this.props.toBeUpdate != null) {
+      this.props.updatePainting(this.props.toBeUpdate._id, newPainting);
+      alert("Creativity Updated Successfully ! ");
+    } else {
+      this.props.addPainting(newPainting);
+
+      alert("Creativity Added Successfully ! ");
+    }
 
     this.setState({
       pname: "",
@@ -104,10 +123,9 @@ export class AddArtFormProfile extends Component {
       technique: "",
       desc: "",
     });
-
-    alert("Creativity Added Successfully ! ");
   };
   render() {
+    console.log(this.props.toBeUpdate)
     return (
       <div>
         <div class="modal-dialog">
@@ -141,6 +159,7 @@ export class AddArtFormProfile extends Component {
                       aria-describedby="emailHelp"
                       placeholder="Only characters"
                       onChange={this.myChangeHandler}
+                      value={this.state.pname}
                     />
                     {this.state.err_pname}
                   </div>
@@ -148,7 +167,11 @@ export class AddArtFormProfile extends Component {
                     <div class="col-sm">
                       <div class="form-group">
                         <label>Select category:</label>
-                        <select class="form-control" name="category">
+                        <select
+                          class="form-control"
+                          name="category"
+                          value={this.state.category}
+                        >
                           <option value="Nature">Nature</option>
                           <option value="Multi-color">Multi-color</option>
                         </select>
@@ -161,6 +184,7 @@ export class AddArtFormProfile extends Component {
                           name="price"
                           placeholder="Price > 100 only"
                           onChange={this.myChangeHandler}
+                          value={this.state.price}
                         />
                         {this.state.err_mail}
                       </div>
@@ -175,6 +199,7 @@ export class AddArtFormProfile extends Component {
                           aria-describedby="emailHelp"
                           // placeholder="Only characters"
                           onChange={this.myChangeHandler}
+                          value={this.state.dimension}
                         />
                         {this.state.err_dime}
                       </div>
@@ -187,6 +212,7 @@ export class AddArtFormProfile extends Component {
                           aria-describedby="emailHelp"
                           placeholder="Only characters"
                           onChange={this.myChangeHandler}
+                          value={this.state.technique}
                         />
                         {this.state.err_tech}
                       </div>
@@ -200,6 +226,7 @@ export class AddArtFormProfile extends Component {
                       rows="3"
                       name="desc"
                       onChange={this.myChangeHandler}
+                      value={this.state.desc}
                     />
                     {this.state.err_desc}
                   </div>
@@ -219,10 +246,13 @@ export class AddArtFormProfile extends Component {
                       type="button"
                       class="btn btn-outline-primary"
                       onClick={() => {
-                        this.handleClick(333);
+                        this.handleClick();
                       }}
                     >
-                      Add creativity
+                      {/* {this.props.toBeUpdate !== null
+                        ? "Update Creativity"
+                        : "Add Creativity"} */}
+                      Add / Update
                     </button>
                   </div>
                 </form>
@@ -240,4 +270,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { addPainting })(AddArtFormProfile);
+export default connect(mapStateToProps, { addPainting, updatePainting })(
+  AddArtFormProfile
+);

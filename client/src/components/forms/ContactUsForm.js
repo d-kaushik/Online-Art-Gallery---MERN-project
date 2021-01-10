@@ -60,8 +60,8 @@ export class ContactUsForm extends Component {
         this.setState({ err_mail: err_mail });
         this.setState({ err_name: err_name });
         this.setState({[nam]:val});
-        console.log(`Todo Description: ${this.state.name}`);
-    console.log("e" + nam);
+    //     console.log(`Todo Description: ${this.state.name}`);
+    // console.log("e" + nam);
       }
       onSubmitForm = () => {
         console.log(`Form submitted:`);
@@ -78,23 +78,6 @@ export class ContactUsForm extends Component {
         axios
           .post("http://localhost:5000/feedbackRoutes/send",newFeedback)
           .then((res) => console.log(res.data));
-        
-        // axios
-        //    .post("http://localhost:5000/send",newFeedback)
-        //    .then((res) => console.log(res.data));
-
-        // axios({
-        //   method: "POST", 
-        //   url:"http://localhost:5000/send", 
-        //   data:  newFeedback
-        // }).then((response)=>{
-        //   if (response.data.status === 'success'){
-        //       alert("Message Sent."); 
-        //       //this.resetForm()
-        //   }else if(response.data.status === 'fail'){
-        //       alert("Message failed to send.")
-        //   }
-        // })
     
         this.setState({
             name: "",
@@ -120,7 +103,7 @@ export class ContactUsForm extends Component {
                   <div class="form-group" >
                     <label>Name:</label>
                     <input type="text" 
-                      //value={this.state.name}
+                      value={this.state.name}
                       class="form-control"
                       name="name"
                       placeholder="Enter name"
@@ -134,7 +117,7 @@ export class ContactUsForm extends Component {
                       type="text"
                       class="form-control"
                       name="mail"
-                      //value={this.state.mail} 
+                      value={this.state.mail} 
                       placeholder="Enter email"
                       onChange={this.myChangeHandler} 
                     />
@@ -147,7 +130,7 @@ export class ContactUsForm extends Component {
                     rows="3" 
                     name="message"
                     onChange={this.myChangeHandler} 
-                    //value={this.state.message} 
+                    value={this.state.message} 
                    />
                   </div>
                   <button type="submit" 

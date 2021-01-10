@@ -1,7 +1,7 @@
 const express = require("express");
 var routes = express.Router();
 var ObjectID = require("mongoose").Types.ObjectId;
-
+const auth = require("../middleware/auth");
 var { art } = require("../model/art.model");
 
 routes.route("/").get(function (req, res) {
@@ -14,11 +14,13 @@ routes.route("/").get(function (req, res) {
   });
 });
 routes.route("/add").post(function (req, res) {
+  // routes.post("/add", auth, function (req, res) {
+  console.log("inarts");
   let art_piece = new art(req.body);
   art_piece
     .save()
     .then((art_piece) => {
-      res.status(200).json({ art_piece: "Art added successfully" });
+      res.status(200).json({ art_piece });
     })
     .catch((err) => {
       res.status(400).send("adding new Art failed");

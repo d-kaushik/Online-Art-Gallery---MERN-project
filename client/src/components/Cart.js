@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import plist from "../assests/PaintingList";
 import { Cards } from "./Cards";
+import { Link } from "react-router-dom";
+import { Paypal } from "./payment/PayPal";
 
 export class Cart extends Component {
   renderCard = (card, index) => {
@@ -68,9 +70,62 @@ export class Cart extends Component {
                       </span>
                     </li>
                   </ul>
-                  <button type="button" className="btn btn-primary btn-block">
-                    go to checkout
+                  
+                  <div
+                    class="bg-image hover-overlay ripple"
+                    data-mdb-ripple-color="light"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    className="grid"
+                  >
+                    <button type="button" className="btn btn-primary btn-block" >
+                      go to checkout
                   </button>
+
+                  </div>
+
+
+                  <div
+                    class="modal fade"
+                    id="exampleModal"
+                    tabindex="-1"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">
+                            Information of Art
+              </h5>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div class="modal-body">
+                          <h1>Pay using Paypal</h1>
+                          <Paypal></Paypal>
+                          <dashboardinfo></dashboardinfo>
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            className="btn btn-primary btn-md mr-1 mb-2"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+              </button>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                
                 </div>
               </div>
               <div className="mb-3">

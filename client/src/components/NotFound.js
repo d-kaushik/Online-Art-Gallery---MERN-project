@@ -15,12 +15,14 @@ const NotFount=()=>
         Sorry, an error has occured, Requested page not found!
       </div>
       <br></br>
-      <div className="error-actions">
+      <div className="error-actions" >
         <a className="btn btn-outline-primary"><span className="glyphicon glyphicon-home" />
         <Link to='/' >Take me Home</Link>
-          </a>
+            </a>
+            
       </div>
-    </div>
+        </div>
+        <br></br><br></br><br></br>
   </div>
 </div>
 </div>

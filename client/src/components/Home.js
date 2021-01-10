@@ -1,12 +1,8 @@
-// import logo from "./logo.svg";
+
 import "../App.css";
 import "../Footer.css";
-// import ReactDOM from "react-dom";
-// import { Route, BrowserRouter as Router } from "react-router-dom";
 import { Link, Switch } from "react-router-dom";
-// import Explore from './components/Explore';
-// import ArtPost from './components/ArtPost';
-// import Footer from "./Footer";
+
 
 function Home() {
   const handleEvent = (event) => {

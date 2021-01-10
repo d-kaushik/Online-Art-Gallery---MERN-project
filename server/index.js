@@ -1,8 +1,9 @@
 require("./db");
 var artRoutes = require("./routes/arts");
 var userRoutes = require("./routes/users");
-var feedbackRoute=require("./routes/feedback");
-//var mailRoute=require("./mail/sendMail")
+var authRoutes = require("./routes/auth");
+var feedbackRoute = require("./routes/feedback");
+
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -18,5 +19,5 @@ app.listen(PORT, function () {
 
 app.use("/artRoutes", artRoutes);
 app.use("/userRoutes", userRoutes);
+app.use("/authRoutes", authRoutes);
 app.use("/feedbackRoutes",feedbackRoute);
-//app.use("/feedbackMail",mailRoute)
