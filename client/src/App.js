@@ -20,7 +20,7 @@ import EditProfile from "./components/myProfile/EditProfile";
 import ChangePass from "./components/myProfile/ChangePass";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
-import Dummy from "./components/Dummy";
+// import Dummy from "./components/Dummy";
 import Payment from "./components/Payment";
 import NotFount from "./components/NotFound";
 class App extends Component {
@@ -44,9 +44,9 @@ class App extends Component {
             <Route path="/offers" component={Offers} />
             <Route path="/edit-profile" component={EditProfile} />
             <Route path="/change-password" component={ChangePass} />
-            <Route path="/dummy" component={Dummy} />
+            {/* <Route path="/dummy" component={Dummy} /> */}
             <Route path="/payment" component={Payment} />
-            <Route component={NotFount}/>
+            <Route component={NotFount} />
           </Switch>
         </Router>
         {/* {NotFount? <Footer style={{positon:'fixed'}}></Footer>:<Footer></Footer>} */}

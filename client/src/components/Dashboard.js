@@ -82,15 +82,7 @@ export class Dashboard extends Component {
           <div class="col">
             <br></br>
             <h3 style={{ color: "blue" }}></h3>
-            <div
-              // class="bg-image hover-overlay ripple"
-              // data-mdb-ripple-color="light"
-              // data-bs-toggle="modal"
-              // data-bs-target="#exampleModal"
-              className="grid"
-            >
-              {this.props.items.map(this.renderCard)}
-            </div>
+            <div className="grid">{this.props.items.map(this.renderCard)}</div>
           </div>
         </div>
 

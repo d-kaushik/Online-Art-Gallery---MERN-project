@@ -1,29 +1,56 @@
 import React, { Component } from "react";
-import plist from "../assests/PaintingList";
-import { Cards } from "./Cards";
-import { Link } from "react-router-dom";
+import { Card } from "react-bootstrap";
+import image from "./painting.jpg";
+import { connect } from "react-redux";
+import { getItems } from "../actions/itemActions";
 import { Paypal } from "./payment/PayPal";
-
+import { Link } from "react-router-dom";
 export class Cart extends Component {
+  componentDidMount() {
+    this.props.getItems();
+  }
   renderCard = (card, index) => {
-    if (card.carted) {
-      return (
-        <Cards
-          index={index}
-          title={card.title}
-          artist={card.artist}
-          currency={card.currency}
-          price={card.price}
-          desc={card.desc}
-          carted={card.carted}
-          wishlisted={card.wishlisted}
-          cart={true}
-          wishlist={false}
-          dashboard={false}
-          explore={false}
-        ></Cards>
-      );
-    }
+    return (
+      <Card
+        style={{ width: "18rem" }}
+        key={card._id}
+        className="box `${this.props.offers ? null : hoverable}`"
+      >
+        <img src={image} width="50%" height="50%" className="img_card"></img>
+        <Card.Body className="body_style">
+          <Card.Title data-bs-toggle="modal" data-bs-target="#exampleModal">
+            {card.painting_name}
+          </Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">
+            {card.category}
+          </Card.Subtitle>
+          <Card.Text>{card.description}</Card.Text>
+          <Card.Text>Rs. {card.price}</Card.Text>
+          <div>
+            <div class="row">
+              <div class="col-sm">
+                <Link
+                  to={{
+                    pathname: "add-creativity",
+                    state: card,
+                  }}
+                >
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary"
+                    style={{ width: "100%" }}
+                    // onClick={() => this.onUpdateClick(card._id)}
+                  >
+                    Add to Wishlist
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Card.Body>
+      </Card>
+    );
+    // }
   };
   render() {
     return (
@@ -33,7 +60,7 @@ export class Cart extends Component {
           {/*Grid row*/}
           <div className="row">
             {/*Grid column*/}
-            <div className="col-lg-8">
+            <div className="col-lg-9">
               {/* Card */}
               <div className="mb-3">
                 <div className="pt-4 wish-list">
@@ -41,11 +68,13 @@ export class Cart extends Component {
                     Cart (<span>4</span> items)
                   </h5>
                   <hr className="mb-4" />
-                  <div className="grid">{plist.map(this.renderCard)}</div>
+                  <div className="grid">
+                    {this.props.items.map(this.renderCard)}
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="col-lg-3" style={{ margin: "10px" }}>
+            <div className="col-lg-3">
               <div className="mb-3">
                 <div className="pt-4">
                   <h5 className="mb-3">The total amount of</h5>
@@ -70,7 +99,7 @@ export class Cart extends Component {
                       </span>
                     </li>
                   </ul>
-                  
+
                   <div
                     class="bg-image hover-overlay ripple"
                     data-mdb-ripple-color="light"
@@ -78,12 +107,10 @@ export class Cart extends Component {
                     data-bs-target="#exampleModal"
                     className="grid"
                   >
-                    <button type="button" className="btn btn-primary btn-block" >
+                    <button type="button" className="btn btn-primary btn-block">
                       go to checkout
-                  </button>
-
+                    </button>
                   </div>
-
 
                   <div
                     class="modal fade"
@@ -97,7 +124,7 @@ export class Cart extends Component {
                         <div class="modal-header">
                           <h5 class="modal-title" id="exampleModalLabel">
                             Information of Art
-              </h5>
+                          </h5>
                           <button
                             type="button"
                             class="btn-close"
@@ -117,15 +144,11 @@ export class Cart extends Component {
                             data-bs-dismiss="modal"
                           >
                             Close
-              </button>
+                          </button>
                         </div>
                       </div>
                     </div>
-
                   </div>
-
-
-                
                 </div>
               </div>
               <div className="mb-3">
@@ -204,4 +227,7 @@ export class Cart extends Component {
   }
 }
 
-export default Cart;
+const mapStateToProps = (state) => ({
+  items: state.items,
+});
+export default connect(mapStateToProps, { getItems })(Cart);
