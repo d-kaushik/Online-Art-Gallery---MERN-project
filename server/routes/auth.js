@@ -13,7 +13,7 @@ routes.route("/").post(function (req, res) {
 
   // let e = user_piece.email;
   user.findOne({ email }).then((user) => {
-    if (!user) return res.status(400).json({ msg: "USer Does not registered" });
+    if (!user) return res.status(400).json({ msg: "User is not registered" });
 
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (!isMatch) return res.status(400).json({ msg: "Invalid Credentials" });

@@ -20,4 +20,4 @@ app.listen(PORT, function () {
 app.use("/artRoutes", artRoutes);
 app.use("/userRoutes", userRoutes);
 app.use("/authRoutes", authRoutes);
-app.use("/feedbackRoutes",feedbackRoute);
+app.use("/feedbackRoutes", feedbackRoute);

@@ -2,7 +2,7 @@ const express = require("express");
 var routes = express.Router();
 var ObjectID = require("mongoose").Types.ObjectId;
 const auth = require("../middleware/auth");
-var { art } = require("../model/art.model");
+var { art } = require("../model/art.model"); //import model here
 
 routes.route("/").get(function (req, res) {
   art.find(function (err, art_piece) {

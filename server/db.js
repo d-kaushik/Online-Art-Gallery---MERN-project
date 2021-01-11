@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-var url = "mongodb://localhost:27017/KMPR";
+var url = "mongodb://localhost:27017/KMPR"; //change db name
 
 mongoose.connect(
   url,
