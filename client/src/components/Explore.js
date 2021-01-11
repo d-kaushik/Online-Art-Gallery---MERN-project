@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./CardLayout.css";
-import Footer from "./Footer";
-import { Cards } from "./Cards";
+import image from "./painting.jpg";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getItems } from "../actions/itemActions";
@@ -9,24 +9,87 @@ import { getItems } from "../actions/itemActions";
 export class Explore extends Component {
   componentDidMount() {
     this.props.getItems();
+    // console.log("this.props.items" + this.props.items);
   }
+  // renderCard = (card, index) => {
+  //   return (
+  //     <Cards
+  //       index={index}
+  //       title={card.painting_name}
+  //       artist={card.category}
+  //       currency="RS"
+  //       price={card.price}
+  //       desc={card.description}
+  //       carted={card.carted}
+  //       wishlisted={card.wishlisted}
+  //       cart={false}
+  //       wishlist={false}
+  //       dashboard={false}
+  //       explore={true}
+  //     ></Cards>
+  //   );
+  // };
   renderCard = (card, index) => {
     return (
-      <Cards
-        index={index}
-        title={card.painting_name}
-        artist={card.category}
-        currency="RS"
-        price={card.price}
-        desc={card.description}
-        carted={card.carted}
-        wishlisted={card.wishlisted}
-        cart={false}
-        wishlist={false}
-        dashboard={false}
-        explore={true}
-      ></Cards>
+      <Card
+        style={{ width: "18rem" }}
+        key={card._id}
+        className="box `${this.props.offers ? null : hoverable}`"
+      >
+        <img src={image} width="50%" height="50%" className="img_card"></img>
+        <Link
+          to={{
+            pathname: "product-details",
+            state: card,
+          }}
+        >
+          <Card.Body className="body_style">
+            <Card.Title data-bs-toggle="modal" data-bs-target="#exampleModal">
+              {card.painting_name}
+            </Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">
+              {card.category}
+            </Card.Subtitle>
+            <Card.Text>{card.description}</Card.Text>
+            <Card.Text>Rs. {card.price}</Card.Text>
+            <div>
+              <div className="options">
+                <div>
+                  <i class="far fa-thumbs-up"></i>
+                </div>
+                <div>
+                  <i className="options" class="far fa-heart"></i>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm">
+                  <button
+                    type="submit"
+                    className="btn btn-light btn-md mr-1 mb-2"
+                    style={{ width: "100%" }}
+                    // onClick={alert("Edit")}
+                  >
+                    <i className="fas fa-shopping-cart pr-2" />
+                    Cart
+                  </button>
+                </div>
+                <div class="col-sm">
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-md mr-1 mb-2"
+                    style={{ width: "100%" }}
+                    // onClick={() => this.onDeleteClick(1)}
+                  >
+                    BUY NOW
+                  </button>
+                </div>
+              </div>
+            </div>
+          </Card.Body>
+        </Link>
+      </Card>
     );
+    // }
   };
   render() {
     return (
@@ -192,11 +255,10 @@ export class Explore extends Component {
           </aside>
           <aside class="col-sm-9">
             <br></br>
-            <Link to="/product-details">
-              <div className="grid">
-                {this.props.items.map(this.renderCard)}
-              </div>
-            </Link>
+            {/* <Link to="/product-details"> */}
+
+            <div className="grid">{this.props.items.map(this.renderCard)}</div>
+            {/* </Link> */}
           </aside>
         </div>
       </div>

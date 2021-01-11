@@ -4,6 +4,8 @@ import {
   ITEM_LOADING,
   DELETE_ITEM,
   UPDATE_ITEM,
+  ADD_USER,
+  LOOK_UP_USER,
 } from "./types";
 import axios from "axios";
 
@@ -28,6 +30,21 @@ export const updatePainting = (id, newPainting) => (dispatch) => {
     .post(`http://localhost:5000/artRoutes/update/${id}`, newPainting)
     .then((res) => dispatch({ type: UPDATE_ITEM, payload: res.data }));
 };
+
+//USER REDUX
+export const getUser = (creds) => (dispatch) => {
+  dispatch(setItemLoading);
+  axios
+    .post("http://localhost:5000/userRoutes/", creds)
+    .then((res) => dispatch({ type: LOOK_UP_USER, payload: res.data }));
+};
+// dispatch({ type: LOOK_UP_USER, payload: res.data })
+export const addUser = (user) => (dispatch) => {
+  axios
+    .post("http://localhost:5000/userRoutes/add", user)
+    .then((res) => dispatch({ type: ADD_USER, payload: res.data }));
+};
+
 export const setItemLoading = () => {
   return {
     type: ITEM_LOADING,

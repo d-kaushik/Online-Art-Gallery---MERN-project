@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ArtPost from "../components/ArtPost";
-import AddArtProfile from "./myProfile/AddArtProfile";
 import { Graphs } from "./Graphs";
 import "./CardLayout.css";
 import { Card } from "react-bootstrap";
@@ -49,7 +48,7 @@ export class Dashboard extends Component {
                 >
                   <button
                     type="button"
-                    class="btn btn-outline-primary"
+                    className="btn btn-light btn-md mr-1 mb-2"
                     style={{ width: "100%" }}
                     // onClick={() => this.onUpdateClick(card._id)}
                   >
@@ -60,7 +59,7 @@ export class Dashboard extends Component {
               <div class="col-sm">
                 <button
                   type="button"
-                  class="btn btn-outline-primary"
+                  className="btn btn-light btn-md mr-1 mb-2"
                   style={{ width: "100%" }}
                   onClick={() => this.onDeleteClick(card._id)}
                 >

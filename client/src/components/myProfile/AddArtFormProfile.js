@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { connect } from "react-redux";
-import { addPainting, updatePainting } from "../../actions/itemActions";
+import {
+  addPainting,
+  updatePainting,
+  getUser,
+} from "../../actions/itemActions";
 
 export class AddArtFormProfile extends Component {
   constructor(props) {
@@ -125,7 +128,7 @@ export class AddArtFormProfile extends Component {
     });
   };
   render() {
-    console.log(this.props.toBeUpdate)
+    console.log(this.props.toBeUpdate);
     return (
       <div>
         <div class="modal-dialog">
@@ -267,9 +270,12 @@ export class AddArtFormProfile extends Component {
 const mapStateToProps = (state) => {
   return {
     items: state.items,
+    users: state.users,
   };
 };
 
-export default connect(mapStateToProps, { addPainting, updatePainting })(
-  AddArtFormProfile
-);
+export default connect(mapStateToProps, {
+  addPainting,
+  updatePainting,
+  getUser,
+})(AddArtFormProfile);

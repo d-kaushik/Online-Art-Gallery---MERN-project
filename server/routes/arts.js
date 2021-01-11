@@ -1,8 +1,7 @@
 const express = require("express");
 var routes = express.Router();
 var ObjectID = require("mongoose").Types.ObjectId;
-const auth = require("../middleware/auth");
-var { art } = require("../model/art.model"); //import model here
+var { art } = require("../model/art.model");
 
 routes.route("/").get(function (req, res) {
   art.find(function (err, art_piece) {
@@ -14,8 +13,6 @@ routes.route("/").get(function (req, res) {
   });
 });
 routes.route("/add").post(function (req, res) {
-  // routes.post("/add", auth, function (req, res) {
-  console.log("inarts");
   let art_piece = new art(req.body);
   art_piece
     .save()

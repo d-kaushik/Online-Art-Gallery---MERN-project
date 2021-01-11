@@ -17,6 +17,12 @@ var user = mongoose.model(
       type: String,
       require: true,
     },
+    cart: {
+      type: String,
+    },
+    wishlist: {
+      type: String,
+    },
   },
   "user"
 );

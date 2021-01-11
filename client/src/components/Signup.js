@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import dummy from "./dummyAvatar.png";
 import "./Signup.css";
+
+import { connect } from "react-redux";
+import { addUser } from "../actions/itemActions";
+
 export class Signup extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +16,10 @@ export class Signup extends Component {
       err_name: "",
       err_phone: "",
       pass1: "",
+      user_name: "",
+      email: "",
+      password: "",
+      phone: "",
       profileImg: dummy,
     };
   }
@@ -117,7 +125,28 @@ export class Signup extends Component {
     } else {
       err_pass2 = <small style={{ color: "red" }}>Password not matching</small>;
     }
-    this.setState({ err_pass2: err_pass2 });
+    this.setState({ err_pass2: err_pass2, password: val });
+  };
+
+  handleClick = () => {
+    const newUser = {
+      name: this.state.user_name,
+      email: this.state.email,
+      number: this.state.phone,
+      password: this.state.password,
+    };
+
+    this.props.addUser(newUser);
+
+    console.log("user" + this.props.users);
+    alert("User Added Successfully ! ");
+
+    this.setState({
+      user_name: "",
+      email: "",
+      phone: "",
+      password: "",
+    });
   };
 
   render() {
@@ -153,15 +182,16 @@ export class Signup extends Component {
             </div>
           </div>
           <div class="card-body">
-            <form method="post">
+            <div>
               <div class="form-group">
                 <label>Full name:</label>
                 <input
                   type="text"
                   class="form-control"
-                  name="name"
+                  name="user_name"
                   id="name"
                   onChange={this.myChangeHandler}
+                  value={this.state.user_name}
                 />
                 {this.state.err_name}
               </div>
@@ -173,6 +203,7 @@ export class Signup extends Component {
                   name="email"
                   aria-describedby="emailHelp"
                   onChange={this.myChangeHandler}
+                  value={this.state.email}
                 />
                 {this.state.err_mail}
               </div>
@@ -194,6 +225,7 @@ export class Signup extends Component {
                     class="form-control"
                     name="phone"
                     onChange={this.myChangeHandler}
+                    value={this.state.phone}
                   />
                 </div>
                 {this.state.err_phone}
@@ -224,11 +256,17 @@ export class Signup extends Component {
                 </div>
               </div>
               <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-outline-primary">
+                <button
+                  type="submit"
+                  class="btn btn-outline-primary"
+                  onClick={() => {
+                    this.handleClick();
+                  }}
+                >
                   Create Account
                 </button>
               </div>
-            </form>
+            </div>
 
             <br></br>
             <label>
@@ -246,4 +284,10 @@ export class Signup extends Component {
   }
 }
 
-export default Signup;
+const mapStateToProps = (state) => {
+  return {
+    users: state.users,
+  };
+};
+
+export default connect(mapStateToProps, { addUser })(Signup);
