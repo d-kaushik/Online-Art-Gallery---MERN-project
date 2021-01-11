@@ -26,6 +26,7 @@ const ProductDetails = () => {
           <h5>{location.state.painting_name}</h5>
           <span className="mr-1">
             <strong>{location.state.price}</strong>
+            <strong>{location.state.artist_name}</strong>
           </span>
           <p className="pt-1">{location.state.description}</p>
           <div className="table-responsive">

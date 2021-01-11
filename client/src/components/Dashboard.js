@@ -13,7 +13,7 @@ export class Dashboard extends Component {
     this.props.getItems();
   }
   onDeleteClick = (id) => {
-    alert(id);
+    alert("Creativity deleted !");
     this.props.deletePainting(id);
   };
   onUpdateClick = (id) => {
@@ -33,7 +33,7 @@ export class Dashboard extends Component {
             {card.painting_name}
           </Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
-            {card.category}
+            {card.artist_name}
           </Card.Subtitle>
           <Card.Text>{card.description}</Card.Text>
           <Card.Text>Rs. {card.price}</Card.Text>

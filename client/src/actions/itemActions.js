@@ -42,7 +42,10 @@ export const getUser = (creds) => (dispatch) => {
 export const addUser = (user) => (dispatch) => {
   axios
     .post("http://localhost:5000/userRoutes/add", user)
-    .then((res) => dispatch({ type: ADD_USER, payload: res.data }));
+    .then((res) => dispatch({ type: ADD_USER, payload: res.data }))
+    .catch((err) => {
+      console.log("Invalid Credentials");
+    });
 };
 
 export const setItemLoading = () => {

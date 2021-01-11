@@ -5,6 +5,9 @@ var art = mongoose.model(
     painting_name: {
       type: String,
     },
+    artist_name: {
+      type: String,
+    },
     category: {
       type: String,
     },

@@ -102,6 +102,7 @@ export class AddArtFormProfile extends Component {
   handleClick = () => {
     const newPainting = {
       painting_name: this.state.pname,
+      artist_name: this.props.users.name,
       category: this.state.category,
       price: this.state.price,
       dimension: this.state.dimension,
@@ -148,8 +149,8 @@ export class AddArtFormProfile extends Component {
                   <div class="form-group">
                     <label style={{ textAlign: "center" }}>
                       <strong>Congratulations</strong> for your new painting{" "}
-                      <strong>{this.state.name}</strong>, We are excited to post
-                      your creativity !
+                      <strong>{this.props.users.name}</strong>, We are excited
+                      to post your creativity !
                     </label>
                   </div>
 

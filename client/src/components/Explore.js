@@ -9,26 +9,8 @@ import { getItems } from "../actions/itemActions";
 export class Explore extends Component {
   componentDidMount() {
     this.props.getItems();
-    // console.log("this.props.items" + this.props.items);
   }
-  // renderCard = (card, index) => {
-  //   return (
-  //     <Cards
-  //       index={index}
-  //       title={card.painting_name}
-  //       artist={card.category}
-  //       currency="RS"
-  //       price={card.price}
-  //       desc={card.description}
-  //       carted={card.carted}
-  //       wishlisted={card.wishlisted}
-  //       cart={false}
-  //       wishlist={false}
-  //       dashboard={false}
-  //       explore={true}
-  //     ></Cards>
-  //   );
-  // };
+
   renderCard = (card, index) => {
     return (
       <Card
@@ -48,7 +30,7 @@ export class Explore extends Component {
               {card.painting_name}
             </Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
-              {card.category}
+              {card.artist_name}
             </Card.Subtitle>
             <Card.Text>{card.description}</Card.Text>
             <Card.Text>Rs. {card.price}</Card.Text>

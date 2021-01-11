@@ -40,6 +40,7 @@ routes.route("/update/:id").post(function (req, res) {
   art.findById(req.params.id, function (err, art_piece) {
     if (!art_piece) res.status(404).send("Art is not found");
     else art_piece.painting_name = req.body.painting_name;
+    art_piece.artist_name = req.body.artist_name;
     art_piece.category = req.body.category;
     art_piece.price = req.body.price;
     art_piece.dimension = req.body.dimension;
