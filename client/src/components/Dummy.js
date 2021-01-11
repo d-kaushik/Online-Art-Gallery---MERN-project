@@ -7,7 +7,6 @@ export class ArtPost extends Component {
     this.state = {
       email: "",
       password: "",
-      errormessage: "",
       err_mail: "",
       err_desc: "",
       err_file: "",
@@ -21,8 +20,10 @@ export class ArtPost extends Component {
       dimension: "",
       technique: "",
       desc: "",
+      file:""
     };
   }
+   
 
   myChangeHandler = (event) => {
     let nam = event.target.name;
@@ -33,11 +34,6 @@ export class ArtPost extends Component {
     let err_file = "";
     let err_pname = "";
     let err_dime = "";
-    // if (nam === "dime") {
-    //   if (!val.match(/^X$/)) {
-    //     err_dime = <small style={{ color: "red" }}>X reuired</small>;
-    //   }
-    // }
     if (nam === "pname") {
       if (!val.match(/^[a-zA-Z]+$/)) {
         err_pname = (
@@ -86,31 +82,45 @@ export class ArtPost extends Component {
     console.log(`Todo Description: ${this.state.pname}`);
     console.log("e" + nam);
   };
+
+//   send = (event) => {
+//     console.log("HEy")
+    
+//   }
+
+  ImageUpload = (event) => {
+    const file1 = event.target.files[0]
+    this.setState({ file: file1 });
+    console.log(file1)
+    console.log(this.file)
+    
+  }
+
+
   onSubmitForm = () => {
-    // e.preventDefault();
-    // console.log(this.state.pname);
+      const data = new FormData()
+      data.append("name", this.state.pname)
+      data.append("category", this.state.pname)
+      data.append("price", this.state.pname)
+      data.append("dimention", this.state.pname)
+      data.append("technique", this.state.pname)
+      data.append("description", this.state.pname)
+      data.append("file", this.state.file)
+      console.log(data)
+
     console.log(`Form submitted:`);
     console.log(`Todo Name: ${this.state.pname}`);
     console.log(`Todo category: ${this.state.category}`);
     console.log(`Todo price: ${this.state.price}`);
     console.log(`Todo dimension: ${this.state.dimension}`);
     console.log(`Todo technique: ${this.state.technique}`);
-    console.log(`Todo desc: ${this.state.desc}`);
+      console.log(`Todo desc: ${this.state.desc}`);
+      console.log(`file: ${ this.state.file }`);
 
-    const newTodo = {
-      painting_name: this.state.pname,
-      category: this.state.category,
-      price: this.state.price,
-      dimension: this.state.dimension,
-      technique: this.state.technique,
-      description: this.state.desc,
-      // path: this.state.path
-    };
-
-    console.log("inFunction" + newTodo);
     axios
-      .post("http://localhost:5000/artRoutes/add", newTodo)
-      .then((res) => console.log(res.data));
+      .post("http://localhost:5000/artRoutes/add", data)
+        .then((res) => console.log(res.data))
+        .catch(err=>console.log(err));
 
     this.setState({
       pname: "",
@@ -118,7 +128,8 @@ export class ArtPost extends Component {
       price: "",
       dimension: "",
       technique: "",
-      desc: "",
+        desc: "",
+      file:""
     });
   };
   render() {
@@ -152,6 +163,7 @@ export class ArtPost extends Component {
                     </label>
                   </div>
 
+                    <form>
                   <div class="form-group">
                     <label>Painting name:</label>
                     <input
@@ -230,7 +242,9 @@ export class ArtPost extends Component {
                       type="file"
                       class="form-control-file border"
                       name="file"
-                      onChange={this.myChangeHandler}
+                      id="file"
+                      accept=".jpg"
+                      onChange={this.ImageUpload}
                     />
                     {this.state.err_file}
                   </div>
@@ -243,6 +257,8 @@ export class ArtPost extends Component {
                       Add creativity
                     </button>
                   </div>
+
+                  </form>
                 </div>
               </div>
             </div>

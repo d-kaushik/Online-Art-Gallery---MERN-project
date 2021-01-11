@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./CardLayout.css";
-import plist1 from "../assests/MyPaintingList";
-import plist from "../assests/PaintingList";
+// import plist1 from "../assests/MyPaintingList";
+// import plist from "../assests/PaintingList";
 import {Cards} from './MyArtCards';
 const Cart = () => {
 

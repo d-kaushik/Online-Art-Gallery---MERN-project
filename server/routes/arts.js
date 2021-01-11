@@ -3,6 +3,12 @@ var routes = express.Router();
 var ObjectID = require("mongoose").Types.ObjectId;
 const auth = require("../middleware/auth");
 var { art } = require("../model/art.model");
+const multer = require("multer");
+const fs = require('fs');
+
+const { promisify } = require('util');
+const pipeline = promisify(require("stream").pipeline)
+const upload = multer();
 
 routes.route("/").get(function (req, res) {
   art.find(function (err, art_piece) {
@@ -13,7 +19,14 @@ routes.route("/").get(function (req, res) {
     }
   });
 });
-routes.route("/add").post(function (req, res) {
+
+
+// router.post("/add", upload.single("file"), async function (req, res, next) {
+  
+// }
+
+
+routes.post("/add", upload.single("file"), async function (req, res, next) {
   // routes.post("/add", auth, function (req, res) {
   console.log("inarts");
   let art_piece = new art(req.body);

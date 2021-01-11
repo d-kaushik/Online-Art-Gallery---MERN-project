@@ -20,6 +20,9 @@ var art = mongoose.model(
     description: {
       type: String,
     },
+    path: {
+      type: String,
+    }
   },
   "art"
 );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Footer from './Footer'
 import { Cards } from "./Cards";
-import plist from "../assests/PaintingList";
+// import plist from "../assests/PaintingList";
 
 export class Offers extends Component {
 

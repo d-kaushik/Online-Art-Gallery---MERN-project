@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ProfileCard from "./ProfileCard";
 import ProfileMenu from "./ProfileMenu";
 import { Cards } from "../components/Cards";
-import plist from "../assests/PaintingList";
+// import plist from "../assests/PaintingList";
 import Footer from "../components/Footer";
 
 const MyArtsProfile = () => {
