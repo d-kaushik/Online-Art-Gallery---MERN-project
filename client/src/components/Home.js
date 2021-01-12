@@ -45,7 +45,7 @@ function Home() {
               </div>
           {/* Single item */}
           <div className="carousel-item">
-                <img src="/assets/img13.jpg" className="d-block w-100"  />
+              <img src="/assets/img13.jpg" className="d-block w-100" />
               <div className="bg-text">
                 <h3>The aim of art is to represent not the outward appearance of things, but their inward significance. </h3>
               <button className="btn btn-outline-info"><Link to="/offers"><strong>View Exciting offers</strong></Link></button></div>
@@ -54,11 +54,9 @@ function Home() {
         {/* Inner */}
         {/* Controls */}
         <a className="carousel-control-prev" href="#carouselBasicExample" role="button" data-mdb-slide="prev">
-       
           <span className="visually-hidden">Previous</span>
         </a>
         <a className="carousel-control-next" href="#carouselBasicExample" role="button" data-mdb-slide="next">
-       
           <span className="visually-hidden">Next</span>
         </a>
         </div>

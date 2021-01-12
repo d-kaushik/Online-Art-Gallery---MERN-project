@@ -20,7 +20,12 @@ export class Signup extends Component {
       email: "",
       password: "",
       phone: "",
-      profileImg: dummy,
+      nameCheck: false,
+      emailCheck: false,
+      phoneCheck: false,
+      passCheck: false,
+      pass1Check:false,
+     profileImg: dummy,
     };
   }
   imageHandler = (e) => {
@@ -32,37 +37,66 @@ export class Signup extends Component {
     };
     reader.readAsDataURL(e.target.files[0]);
   };
-  myChangeHandler = (event) => {
+  myNameChangeHandler = (event) => {
     let nam = event.target.name;
     let val = event.target.value;
-    let err = "";
-    let err_mail = "";
     let err_name = "";
-    let err_phone = "";
-    if (nam === "name") {
-      if (!val.match(/^[a-zA-Z]+$/)) {
+    if (!isNaN(val)) {
         err_name = (
           <small style={{ color: "red" }}>Numbers are not allowed</small>
         );
-      }
     }
-    if (nam === "name") {
-      if (val == "") {
+    else {
+      this.setState({nameCheck:true});
+    }
+    if (val == "") {
         err_name = (
           <small style={{ color: "red" }}>Name is compulsory field</small>
         );
-      }
     }
-    if (nam === "email") {
-      if (val == "") {
+    this.setState({ err_name: err_name });
+    this.setState({ [nam]: val });
+  }
+  myPhoneChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    let err_phone = "";
+    if (val == "") {
+        err_phone = (
+          <small style={{ color: "red" }}>
+            Mobile number is compulsory field
+          </small>
+        );
+    }
+    else if (val.length != 10 ) {
+        err_phone = (
+          <small style={{ color: "red" }}>Invalid mobile number</small>
+        );
+    }
+    else if (val.match(/^[a-zA-Z]+$/)) {
+        err_phone = (
+          <small style={{ color: "red" }}>Letters are not allowed</small>
+        );
+    }
+    else {
+      this.setState({phoneCheck:true})
+    }
+    this.setState({ [nam]: val });
+    this.setState({ err_phone: err_phone });
+    
+  }
+
+  myEmailChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    let err_mail = "";
+    if (val == "") {
         err_mail = (
           <small style={{ color: "red" }}>Email is compulsory field</small>
         );
-      }
     }
-    if (nam === "email") {
-      let lastAtPos = val.lastIndexOf("@");
-      let lastDotPos = val.lastIndexOf(".");
+    let lastAtPos = val.lastIndexOf("@");
+    let lastDotPos = val.lastIndexOf(".");
       if (
         !(
           lastAtPos < lastDotPos &&
@@ -71,28 +105,19 @@ export class Signup extends Component {
           lastDotPos > 2 &&
           val.length - lastDotPos > 2
         )
-      ) {
+      )
+      {
         err_mail = <small style={{ color: "red" }}>Invalid Email</small>;
       }
+      else {
+        this.setState({emailCheck:true})
     }
-    if (nam === "phone") {
-      if (val == "") {
-        err_phone = (
-          <small style={{ color: "red" }}>
-            Mobile number is compulsory field
-          </small>
-        );
-      } else if (val.length != 10) {
-        err_phone = (
-          <small style={{ color: "red" }}>Invalid mobile number</small>
-        );
-      }
-      if (val.match(/^[a-zA-Z]+$/)) {
-        err_phone = (
-          <small style={{ color: "red" }}>Letters are not allowed</small>
-        );
-      }
-    }
+    this.setState({ [nam]: val });
+    this.setState({ err_mail: err_mail });
+  }
+  myChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
     let err_pass1 = "";
     if (nam === "pass1") {
       if (val.length < 6) {
@@ -106,14 +131,13 @@ export class Signup extends Component {
           <small style={{ color: "red" }}>Password is too long</small>
         );
       }
+      else {
+        this.setState({pass1Check:true})
+      }
       this.setState({ pass1: val });
     }
-    this.setState({ err_mail: err_mail });
-    this.setState({ err_name: err_name });
     this.setState({ err_pass1: err_pass1 });
-    this.setState({ errormessage: err });
-    this.setState({ err_phone: err_phone });
-    this.setState({ [nam]: val });
+    
   };
 
   verifyPassword = (event) => {
@@ -122,6 +146,7 @@ export class Signup extends Component {
 
     if (this.state.pass1 === val) {
       err_pass2 = <small style={{ color: "green" }}>Matched</small>;
+      this.setState({passCheck:true})
     } else {
       err_pass2 = <small style={{ color: "red" }}>Password not matching</small>;
     }
@@ -129,6 +154,16 @@ export class Signup extends Component {
   };
 
   handleClick = () => {
+    if (this.state.user_name === "") {
+      alert('Name is compulsory field')
+    }
+    else if (!isNaN(this.state.user_name)) {
+      alert('Numbers are not allowed in Name field')
+    }
+    else if (this.state.email === "") {
+      alert('Email is compulsory')
+    }
+
     const newUser = {
       name: this.state.user_name,
       email: this.state.email,
@@ -156,7 +191,7 @@ export class Signup extends Component {
       <div>
         <br></br>
         <div
-          className="container-sm border pt-3 hoverable"
+          className="container-sm border pt-3 shadow"
           style={{ maxWidth: "500px" }}
         >
           <h5
@@ -191,7 +226,7 @@ export class Signup extends Component {
                   class="form-control"
                   name="user_name"
                   id="name"
-                  onChange={this.myChangeHandler}
+                  onChange={this.myNameChangeHandler}
                   value={this.state.user_name}
                 />
                 {this.state.err_name}
@@ -203,7 +238,7 @@ export class Signup extends Component {
                   class="form-control"
                   name="email"
                   aria-describedby="emailHelp"
-                  onChange={this.myChangeHandler}
+                  onChange={this.myEmailChangeHandler}
                   value={this.state.email}
                 />
                 {this.state.err_mail}
@@ -225,7 +260,7 @@ export class Signup extends Component {
                     type="text"
                     class="form-control"
                     name="phone"
-                    onChange={this.myChangeHandler}
+                    onChange={this.myPhoneChangeHandler}
                     value={this.state.phone}
                   />
                 </div>
@@ -263,6 +298,7 @@ export class Signup extends Component {
                   onClick={() => {
                     this.handleClick();
                   }}
+                disabled={this.state.nameCheck && this.state.emailCheck && this.state.passCheck && this.state.phoneCheck && this.state.pass1Check? false: true}
                 >
                   Create Account
                 </button>
@@ -280,6 +316,7 @@ export class Signup extends Component {
             </label>
           </div>
         </div>
+        <br></br>
       </div>
     );
   }
