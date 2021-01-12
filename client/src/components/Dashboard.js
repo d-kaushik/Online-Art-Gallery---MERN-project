@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ArtPost from "../components/ArtPost";
-import AddArtProfile from "./myProfile/AddArtProfile";
 import { Graphs } from "./Graphs";
 import "./CardLayout.css";
 import { Card } from "react-bootstrap";
@@ -14,7 +13,7 @@ export class Dashboard extends Component {
     this.props.getItems();
   }
   onDeleteClick = (id) => {
-    alert(id);
+    alert("Creativity deleted !");
     this.props.deletePainting(id);
   };
   onUpdateClick = (id) => {
@@ -34,7 +33,7 @@ export class Dashboard extends Component {
             {card.painting_name}
           </Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
-            {card.category}
+            {card.artist_name}
           </Card.Subtitle>
           <Card.Text>{card.description}</Card.Text>
           <Card.Text>Rs. {card.price}</Card.Text>
@@ -49,7 +48,7 @@ export class Dashboard extends Component {
                 >
                   <button
                     type="button"
-                    class="btn btn-outline-primary"
+                    className="btn btn-light btn-md mr-1 mb-2"
                     style={{ width: "100%" }}
                     // onClick={() => this.onUpdateClick(card._id)}
                   >
@@ -60,7 +59,7 @@ export class Dashboard extends Component {
               <div class="col-sm">
                 <button
                   type="button"
-                  class="btn btn-outline-primary"
+                  className="btn btn-light btn-md mr-1 mb-2"
                   style={{ width: "100%" }}
                   onClick={() => this.onDeleteClick(card._id)}
                 >
@@ -82,15 +81,7 @@ export class Dashboard extends Component {
           <div class="col">
             <br></br>
             <h3 style={{ color: "blue" }}></h3>
-            <div
-              // class="bg-image hover-overlay ripple"
-              // data-mdb-ripple-color="light"
-              // data-bs-toggle="modal"
-              // data-bs-target="#exampleModal"
-              className="grid"
-            >
-              {this.props.items.map(this.renderCard)}
-            </div>
+            <div className="grid">{this.props.items.map(this.renderCard)}</div>
           </div>
         </div>
 

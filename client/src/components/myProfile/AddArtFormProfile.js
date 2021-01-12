@@ -1,7 +1,11 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { connect } from "react-redux";
-import { addPainting, updatePainting } from "../../actions/itemActions";
+// import axios from Axios
+import {
+  addPainting,
+  updatePainting,
+  getUser,
+} from "../../actions/itemActions";
 
 export class AddArtFormProfile extends Component {
   constructor(props) {
@@ -25,6 +29,7 @@ export class AddArtFormProfile extends Component {
       dimension: "",
       technique: "",
       desc: "",
+      selectedFile:null
     };
   }
 
@@ -40,13 +45,27 @@ export class AddArtFormProfile extends Component {
       });
     }
   }
+  FileChange = event => {
+    let err_file = "";
+    console.log(event.target.files[0])
+    this.setState({selectedFile:event.target.files[0]})
+    // if (nam === "file") {
+    //   if (!val.endsWith(".jpg")) {
+    //     console.log("ss" + val.endsWith(".jpg"));
+    //     err_file = (
+    //       <small style={{ color: "red" }}>Only JPG file Allowed</small>
+    //     );
+    //   }
+    // }
+    // this.setState({ err_file: err_file });
+  }
   myChangeHandler = (event) => {
     let nam = event.target.name;
     let val = event.target.value;
     let err = "";
     let err_mail = "";
     let err_desc = "";
-    let err_file = "";
+    
     let err_pname = "";
     let err_dime = "";
 
@@ -80,17 +99,10 @@ export class AddArtFormProfile extends Component {
         );
       }
     }
-    if (nam === "file") {
-      if (!val.endsWith(".jpg")) {
-        console.log("ss" + val.endsWith(".jpg"));
-        err_file = (
-          <small style={{ color: "red" }}>Only JPG file Allowed</small>
-        );
-      }
-    }
+    
     this.setState({ err_mail: err_mail });
     this.setState({ err_desc: err_desc });
-    this.setState({ err_file: err_file });
+    
     this.setState({ err_pname: err_pname });
     this.setState({ err_dime: err_dime });
     this.setState({ errormessage: err });
@@ -99,6 +111,7 @@ export class AddArtFormProfile extends Component {
   handleClick = () => {
     const newPainting = {
       painting_name: this.state.pname,
+      artist_name: this.props.users.name,
       category: this.state.category,
       price: this.state.price,
       dimension: this.state.dimension,
@@ -123,9 +136,10 @@ export class AddArtFormProfile extends Component {
       technique: "",
       desc: "",
     });
+    // axios.post('')
   };
   render() {
-    console.log(this.props.toBeUpdate)
+    console.log(this.props.toBeUpdate);
     return (
       <div>
         <div class="modal-dialog">
@@ -145,8 +159,8 @@ export class AddArtFormProfile extends Component {
                   <div class="form-group">
                     <label style={{ textAlign: "center" }}>
                       <strong>Congratulations</strong> for your new painting{" "}
-                      <strong>{this.state.name}</strong>, We are excited to post
-                      your creativity !
+                      <strong>{this.props.users.name}</strong>, We are excited
+                      to post your creativity !
                     </label>
                   </div>
 
@@ -230,14 +244,14 @@ export class AddArtFormProfile extends Component {
                     />
                     {this.state.err_desc}
                   </div>
-
                   <div class="form-group">
                     <label>Upload image: </label>
                     <input
                       type="file"
+                      accept=".jpg"
                       class="form-control-file border"
                       name="file"
-                      onChange={this.myChangeHandler}
+                      onChange={this.FileChange}
                     />
                     {this.state.err_file}
                   </div>
@@ -267,9 +281,12 @@ export class AddArtFormProfile extends Component {
 const mapStateToProps = (state) => {
   return {
     items: state.items,
+    users: state.users,
   };
 };
 
-export default connect(mapStateToProps, { addPainting, updatePainting })(
-  AddArtFormProfile
-);
+export default connect(mapStateToProps, {
+  addPainting,
+  updatePainting,
+  getUser,
+})(AddArtFormProfile);

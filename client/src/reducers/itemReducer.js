@@ -4,10 +4,13 @@ import {
   ITEM_LOADING,
   DELETE_ITEM,
   UPDATE_ITEM,
+  ADD_USER,
+  LOOK_UP_USER,
 } from "../actions/types";
 
 const initialState = {
   items: [],
+  users: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -31,12 +34,21 @@ const reducer = (state = initialState, action) => {
     case UPDATE_ITEM:
       return {
         ...state,
-        items: [action.payload, ...state.items],
+        // items: [action.payload, ...state.items],
       };
-    case ITEM_LOADING:
+    case DELETE_ITEM:
       return {
         ...state,
-        loading: true,
+        items: state.items.filter((item) => item._id !== action.payload),
+      };
+    case ADD_USER:
+      return {
+        ...state,
+      };
+    case LOOK_UP_USER:
+      return {
+        ...state,
+        users: action.payload,
       };
 
     default:

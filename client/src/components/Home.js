@@ -29,7 +29,7 @@ function Home() {
          
         <div className="carousel-inner">
           <div className="carousel-item active">
-                <img src="/assets/img4.jpg" className="d-block w-100" alt="..." />
+                <img src="/assets/img4.jpg" className="d-block w-100" />
               <div className="bg-text">
                 <h3>While drawing I discover what I really want to say. </h3>
               <button className="btn btn-outline-light"><strong>Signup</strong></button></div>
@@ -37,14 +37,14 @@ function Home() {
             
           {/* Single item */}
           <div className="carousel-item">
-                <img src="/assets/img5.webp" className="d-block w-100" alt="..." />
+                <img src="/assets/img5.webp" className="d-block w-100" />
               <div className="bg-text">
                 <h3>While drawing I discover what I really want to say. </h3>
               <button className="btn btn-outline-light"><strong>Signup</strong></button></div>
               </div>
           {/* Single item */}
           <div className="carousel-item">
-                <img src="/assets/img7.jpg" className="d-block w-100" alt="..." />
+                <img src="/assets/img12.webp" className="d-block w-100"  />
               <div className="bg-text">
                 <h3>While drawing I discover what I really want to say. </h3>
               <button className="btn btn-outline-light"><strong>Signup</strong></button></div>
@@ -66,24 +66,20 @@ function Home() {
       <br></br>
 
       <div className="container marketing">
+        <h2 style={{fontFamily:'Trebuchet MS', textAlign:'center'}}><strong>Our Top Artist</strong></h2>
+        <hr></hr>
         <div className="row">
-          <div className="col-lg-4" style={{ textAlign: "center" }}>
+          <div className="col-lg-3" style={{ textAlign: "center" }}>
             <img
               className="rounded-circle"
-              src="/assets/painting.jpg"
+              src="/assets/artist1.jpeg"
               alt="Generic placeholder image"
               width={140}
               height={140}
             />
-            <h2>Heading</h2>
+            <h3>Kaushik</h3>
             <p>
               Discover the world of art & craft with KMPR.com. KMPR.com is an
-              online marketplace that helps art collectors/lovers and
-              enthusiasts to buy and sell art with ease from any part of the
-              world. KMPR.com caters to original art (art investment),
-              sculpture, digital prints, craft, home decor and many more.
-              Explore our online art gallery and grab your choice of painting or
-              portraits or craft.
             </p>
             <p>
               <a className="btn btn-outline-primary" href="#" role="button">
@@ -91,23 +87,17 @@ function Home() {
               </a>
             </p>
           </div>
-          <div className="col-lg-4" style={{ textAlign: "center" }}>
+          <div className="col-lg-3" style={{ textAlign: "center" }}>
             <img
               className="rounded-circle"
-              src="/assets/painting.jpg"
+              src="/assets/artist2.jpeg"
               alt="Generic placeholder image"
               width={140}
               height={140}
             />
-            <h2>Heading</h2>
+            <h3>Mrunali</h3>
             <p>
               Discover the world of art & craft with KMPR.com. KMPR.com is an
-              online marketplace that helps art collectors/lovers and
-              enthusiasts to buy and sell art with ease from any part of the
-              world. KMPR.com caters to original art (art investment),
-              sculpture, digital prints, craft, home decor and many more.
-              Explore our online art gallery and grab your choice of painting or
-              portraits or craft.
             </p>
             <p>
               <a className="btn btn-outline-primary" href="#" role="button">
@@ -115,23 +105,37 @@ function Home() {
               </a>
             </p>
           </div>
-          <div className="col-lg-4" style={{ textAlign: "center" }}>
+          <div className="col-lg-3" style={{ textAlign: "center" }}>
             <img
               className="rounded-circle"
-              src="/assets/painting.jpg"
+              src="/assets/artist3.jpeg"
               alt="Generic placeholder image"
               width={140}
               height={140}
             />
-            <h2>Heading</h2>
+            <h3>Priyanka</h3>
             <p>
               Discover the world of art & craft with KMPR.com. KMPR.com is an
-              online marketplace that helps art collectors/lovers and
-              enthusiasts to buy and sell art with ease from any part of the
-              world. KMPR.com caters to original art (art investment),
-              sculpture, digital prints, craft, home decor and many more.
-              Explore our online art gallery and grab your choice of painting or
-              portraits or craft.
+             
+            </p>
+            <p>
+              <a className="btn btn-outline-primary" href="#" role="button">
+                View details »
+              </a>
+            </p>
+          </div>
+          <div className="col-lg-3" style={{ textAlign: "center" }}>
+            <img
+              className="rounded-circle"
+              src="/assets/artist4.jpeg"
+              alt="Generic placeholder image"
+              width={140}
+              height={140}
+            />
+            <h3>Rohan</h3>
+            <p>
+              Discover the world of art & craft with KMPR.com. KMPR.com is an
+              
             </p>
             <p>
               <a className="btn btn-outline-primary" href="#" role="button">

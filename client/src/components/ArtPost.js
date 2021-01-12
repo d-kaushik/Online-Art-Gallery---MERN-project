@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-
 export class ArtPost extends Component {
   constructor(props) {
     super(props);
@@ -79,7 +78,6 @@ export class ArtPost extends Component {
     this.setState({ [nam]: val });
   };
 
-
   render() {
     return (
       <div>
@@ -126,7 +124,7 @@ export class ArtPost extends Component {
                   <div class="row">
                     <div class="col-sm">
                       <div class="form-group">
-                        <label>Select category:</label>
+                        <label>Select category1:</label>
                         <select class="form-control">
                           <option value="all">Nature</option>
                           <option value="selected">Multi-color</option>
