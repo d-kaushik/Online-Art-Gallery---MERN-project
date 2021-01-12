@@ -108,6 +108,7 @@ export class Login extends Component {
                 </div>
                 <br></br>
                 <div class="d-flex justify-content-center">
+                  <Link to="/profile">
                   <button
                     type="submit"
                     class="btn btn-outline-primary btn-block mb-2"
@@ -115,8 +116,9 @@ export class Login extends Component {
                       this.handleClick();
                     }}
                   >
-                    Login
+                      Login
                   </button>
+                    </Link>
                 </div>
               </div>
 

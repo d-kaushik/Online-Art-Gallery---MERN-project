@@ -66,6 +66,12 @@ export class ContactUsForm extends Component {
       onSubmitForm = () => {
         console.log(`Form submitted:`);
         console.log(`Name: ${this.state.name}`);
+        if (this.state.name === "") {
+          alert('Name is compulsory')
+        }
+        else if (!isNaN(this.state.name)) {
+          alert('Numbers are not allowed in name field')
+        }
         console.log(`Mail: ${this.state.mail}`);
         console.log(`Message: ${this.state.message}`);
     
