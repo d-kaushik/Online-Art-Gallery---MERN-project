@@ -5,16 +5,7 @@ import { Link, Switch } from "react-router-dom";
 
 
 function Home() {
-  // const handleEvent = (event) => {
-  //   <div class="text-center">
-  //     <Link to="/Explore">
-  //       <button type="button" class="btn btn-outline-dark">
-  //         Explore
-  //       </button>
-  //     </Link>
-  //   </div>;
-  // };
-  
+
   return (
     <div >
       <div>
@@ -38,7 +29,7 @@ function Home() {
             
           {/* Single item */}
           <div className="carousel-item">
-                <img src="/assets/img5.webp" className="d-block w-100" />
+                <img src="/assets/img5.jpg" className="d-block w-100" />
               <div className="bg-text">
                 <h3>Artists are just children who refuse to put down their crayons. </h3>
               <button className="btn btn-outline-info"><Link to="/explore"><strong>Explore our Paintings</strong></Link></button></div>
@@ -74,7 +65,7 @@ function Home() {
               src="/assets/artist1.jpeg"
               alt="Generic placeholder image"
               width={150}
-              style={{border:'3px solid '}}
+              // style={{border:'3px solid '}}
               height={150}
             />
             <h3>Kaushik</h3>
@@ -93,7 +84,7 @@ function Home() {
               className="rounded-circle"
               src="/assets/artist2.jpeg"
               alt="Generic placeholder image"
-              style={{border:'3px solid '}}
+              //style={{border:'3px solid '}}
               width={150}
               height={150}
             />
@@ -113,7 +104,7 @@ function Home() {
               className="rounded-circle"
               src="/assets/artist3.jpeg"
               alt="Generic placeholder image"
-              style={{border:'3px solid '}}
+              //style={{border:'3px solid '}}
               width={150}
               height={150}
             />
@@ -134,7 +125,7 @@ function Home() {
               className="rounded-circle"
               src="/assets/artist4.jpeg"
               alt="Generic placeholder image"
-              style={{border:'3px solid '}}
+              //style={{border:'3px solid '}}
               width={150}
               height={150}
             />
@@ -154,33 +145,116 @@ function Home() {
         </div>
 
         <hr className="featurette-divider" />
-        <div className="row featurette">
-          <div className="col-md-7">
-            <h2 className="featurette-heading">
+            <h2 style={{textAlign:'center'}}>
               Some of the best figurative paintings.{" "}
               <span className="text-muted">It'll blow your mind.</span>
-            </h2>
-            {/* <p className="lead">
-              Discover the world of art & craft with KMPR.com. KMPR.com is an
-              online marketplace that helps art collectors/lovers and
-              enthusiasts to buy and sell art with ease from any part of the
-              world. KMPR.com caters to original art (art investment),
-              sculpture, digital prints, craft, home decor and many more.
-              Explore our online art gallery and grab your choice of painting or
-              portraits or craft.
-            </p> */}
-          </div>
-         
-          <div className="col-md-5">
+        </h2>
+        <hr></hr>
+          <div className="row">
+          <div className="col-lg-3" style={{ textAlign: "center" }}>
+            <br></br><br></br><br></br>
             <img
               className="featurette-image img-fluid mx-auto"
-              style={{ width: "400px", height: "400px" ,border:'3px solid '}}
-              src="/assets/paint1.jpg"
+              style={{border:'3px solid ',width:'400px'}}
+              src="/assets/paint2.jpg"
               data-holder-rendered="true"
             />
-            </div>
-     
+            <h3>Acrylic</h3>
+            <img
+              className="featurette-image img-fluid mx-auto"
+              style={{border:'3px solid' ,width:'400px'}}
+              src="/assets/paint12.jpg"
+              data-holder-rendered="true"
+            />
+            <h3>Acrylic</h3>
+          </div>
+          <div className="col-lg-1 md-1" ></div>
+          <div className="col-lg-3" style={{ textAlign: "center" }}>
+            <img
+              className="featurette-image img-fluid mx-auto"
+              style={{border:'3px solid ',width:'400px'}}
+              src="/assets/paint5.jpg"
+              data-holder-rendered="true"
+            />
+            <h3>Realism</h3>
+            <br></br>
+            {/* <Link to="/explore">
+              <a className="btn btn-outline-primary" href="#" role="button">
+                View details »
+              </a></Link> */}
+            <img
+              className="featurette-image img-fluid mx-auto"
+              style={{border:'3px solid' ,width:'400px'}}
+              src="/assets/paint12.jpg"
+              data-holder-rendered="true"
+            />
+            <h3>Acrylic</h3>
+           
+          </div>
+          <div className="col-lg-1 md-1" ></div>
+          <div className="col-lg-3" style={{ textAlign: "center" }}>
+            <br></br><br></br><br></br>
+            <img
+              className="featurette-image img-fluid mx-auto"
+              style={{border:'3px solid ',width:'400px'}}
+              src="/assets/paint2.jpg"
+              data-holder-rendered="true"
+            />
+            <h3>Acrylic</h3>
+            <img
+              className="featurette-image img-fluid mx-auto"
+              style={{border:'3px solid' ,width:'400px'}}
+              src="/assets/paint12.jpg"
+              data-holder-rendered="true"
+            />
+            <h3>Acrylic</h3>
+          </div>
         </div>
+        
+         <hr className="featurette-divider" />
+            <h2 style={{textAlign:'center'}}>
+              Some of the best Indian paintings.{" "}
+        </h2>
+        <hr></hr>
+          <div className="row">
+          <div className="col-lg-3" style={{ textAlign: "center" }}>
+            <img
+              className="featurette-image img-fluid mx-auto"
+              style={{border:'3px solid ',width:'400px'}}
+              src="/assets/paint10.jpg"
+              data-holder-rendered="true"
+            />
+            
+            <h3>Realism</h3>
+          </div>
+          <div className="col-lg-1 md-1" ></div>
+          <div className="col-lg-3" style={{ textAlign: "center" }}>
+            <img
+              className="featurette-image img-fluid mx-auto"
+              style={{border:'3px solid ',width:'400px'}}
+              src="/assets/paint11.jpg"
+              data-holder-rendered="true"
+            />
+            <h3>Realism</h3>
+            <br></br>
+          </div>
+          <div className="col-lg-1 md-1" ></div>
+          <div className="col-lg-3" style={{ textAlign: "center" }}>
+            <img
+              className="featurette-image img-fluid mx-auto"
+              style={{border:'3px solid' ,width:'400px'}}
+              src="/assets/paint12.jpg"
+              data-holder-rendered="true"
+            />
+            <h3>Acrylic</h3>
+          </div>
+          </div>
+         
+          
+            
+            
+     
+       
         <hr className="featurette-divider" />
         <div className="row featurette">
           <div className="col-md-7 order-md-2">
@@ -189,13 +263,10 @@ function Home() {
               <span className="text-muted">See for yourself.</span>
             </h2>
             <p className="lead">
-              Discover the world of art & craft with KMPR.com. KMPR.com is an
-              online marketplace that helps art collectors/lovers and
-              enthusiasts to buy and sell art with ease from any part of the
-              world. KMPR.com caters to original art (art investment),
-              sculpture, digital prints, craft, home decor and many more.
-              Explore our online art gallery and grab your choice of painting or
-              portraits or craft.
+              Painting is the practice of applying paint, pigment, color 
+              or other medium to a solid surface (called the "matrix" or "support")
+               The medium is commonly applied to the base with a brush, but other
+               implements, such as knives, sponges, and airbrushes, can be used.
             </p>
           </div>
           <div className="col-md-5 order-md-1">

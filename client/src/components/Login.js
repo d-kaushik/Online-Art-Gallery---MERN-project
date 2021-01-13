@@ -65,7 +65,7 @@ export class Login extends Component {
       <div>
         <br></br>
 
-        <div className="container-sm border pt-3" style={{ maxWidth: "500px" }}>
+        <div className="container-sm border pt-3 shadow" style={{ maxWidth: "500px" }} >
           <div>
             <h5
               class="card-header"
@@ -122,7 +122,7 @@ export class Login extends Component {
                 </div>
               </div>
 
-              <br></br>
+             
               <div class="text-center">
                 <p>
                   Not a member?{" "}
@@ -138,7 +138,6 @@ export class Login extends Component {
                 <button type="button" class="btn btn-primary btn-floating mx-1">
                   <i class="fab fa-facebook-f"></i>
                 </button>
-
                 <button type="button" class="btn btn-primary btn-floating mx-1">
                   <i class="fab fa-google"></i>
                 </button>
@@ -146,6 +145,7 @@ export class Login extends Component {
             </div>
           </div>
         </div>
+        <br></br>
       </div>
     );
   }

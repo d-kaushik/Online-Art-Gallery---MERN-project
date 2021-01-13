@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import Footer from './Footer'
-import { Cards } from "./Cards";
-// import plist from "../assests/PaintingList";
 
 export class Offers extends Component {
 
@@ -21,7 +18,7 @@ export class Offers extends Component {
                   <div align="center" margin-left="auto" margin-right="auto" >
 
                     <h6 className="info"> <br></br>
-                      <img src="/assets/painting.jpg" width="50%" height="50%" align="center" /><br></br>
+                      <img src="/assets/painting.jpg" width="50%" height="50%" align="center" alt=""/><br></br>
                                     James Bond <br></br>
                                     Rs : 1000</h6>
                   </div>

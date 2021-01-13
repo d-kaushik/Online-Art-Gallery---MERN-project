@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export class ChangePassComp extends Component {
     render() {
@@ -17,8 +18,8 @@ export class ChangePassComp extends Component {
           <button type="submit" className="btn btn-primary mb-4">Change password</button>
         </form>
         <div className="d-flex justify-content-between align-items-center mb-2">
-          <u><a href="https://mdbootstrap.com/docs/jquery/admin/auth/login/">Back to Log In</a></u>
-          <u><a href="https://mdbootstrap.com/docs/jquery/admin/auth/register/">Register</a></u>
+          <u><Link to="/login"><a>Back to Log In</a></Link></u>
+          <u><Link to="/signup"><a>Register</a></Link></u>
         </div>
       </section>
         )

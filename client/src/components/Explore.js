@@ -11,6 +11,8 @@ export class Explore extends Component {
     this.props.getItems();
   }
 
+  
+
   renderCard = (card, index) => {
     return (
       <Card

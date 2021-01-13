@@ -7,71 +7,98 @@ export class ContactUsForm extends Component {
           mail: '',
           err_mail: '',
           err_name: '',
+          err_message:'',
           name:'',
           mail:'',
           message:'',
           value:'',
-          subject:''
+          subject: '',
+          nameCheck: false,
+          emailCheck: false,
+          messageCheck:false
         };
       }
-      
- 
-      myChangeHandler = (event) => {
-        let nam = event.target.name;
-        let val = event.target.value;
-        let err_mail = "";
-        let err_name = "";
-        if (nam === "name") {
-          if (!isNaN(val)) {
-            err_name = (
-              <small style={{ color: "red" }}>Numbers are not allowed</small>
-            );
-          }
-        }
-        if (nam === "name") {
-          if (val == "") {
-            err_name = (
-              <small style={{ color: "red" }}>Name is compulsory field</small>
-            );
-          }
-        }
-        if (nam === "mail") {
-          if (val == "") {
-            err_mail = (
-              <small style={{ color: "red" }}>Email is compulsory field</small>
-            );
-          }
-        }
-        if (nam === "mail") {
-          let lastAtPos = val.lastIndexOf("@");
-          let lastDotPos = val.lastIndexOf(".");
-          if (
-            !(
-              lastAtPos < lastDotPos &&
-              lastAtPos > 0 &&
-              val.indexOf("@@") == -1 &&
-              lastDotPos > 2 &&
-              val.length - lastDotPos > 2
-            )
-          ) {
-            err_mail = <small style={{ color: "red" }}>Invalid Email</small>;
-          }
-        }
-        this.setState({ err_mail: err_mail });
-        this.setState({ err_name: err_name });
-        this.setState({[nam]:val});
-    //     console.log(`Todo Description: ${this.state.name}`);
-    // console.log("e" + nam);
+    myNameChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    let err_name = "";
+    if (!isNaN(val)) {
+        err_name = (
+          <small style={{ color: "red" }}>Numbers are not allowed</small>
+      );
+      this.setState({nameCheck:false});
+    }
+    else {
+      this.setState({nameCheck:true});
+    }
+    if (val == "") {
+        err_name = (
+          <small style={{ color: "red" }}>Name is compulsory field</small>
+      );
+      this.setState({nameCheck:false});
+    }
+    this.setState({ err_name: err_name });
+    this.setState({ [nam]: val });
+  }
+  myEmailChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    let err_mail = "";
+    if (val == "") {
+        err_mail = (
+          <small style={{ color: "red" }}>Email is compulsory field</small>
+      );
+      this.setState({emailCheck:false})
+    }
+    let lastAtPos = val.lastIndexOf("@");
+    let lastDotPos = val.lastIndexOf(".");
+      if (
+        !(
+          lastAtPos < lastDotPos &&
+          lastAtPos > 0 &&
+          val.indexOf("@@") == -1 &&
+          lastDotPos > 2 &&
+          val.length - lastDotPos > 2
+        )
+      )
+      {
+        err_mail = <small style={{ color: "red" }}>Invalid Email</small>;
+        this.setState({emailCheck:false})
       }
+      else {
+        this.setState({emailCheck:true})
+    }
+    this.setState({ [nam]: val });
+    this.setState({ err_mail: err_mail });
+  }
+  myMessageChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    let err_message = "";
+     
+    if (val == "") {
+        err_message = (
+          <small style={{ color: "red" }}>Message is compulsory field</small>
+          
+      );
+      this.setState({messageCheck:false});
+    }
+    else {
+      this.setState({messageCheck:true});
+    }
+    this.setState({ err_message: err_message });
+    this.setState({ [nam]: val });
+
+  }
       onSubmitForm = () => {
         console.log(`Form submitted:`);
         console.log(`Name: ${this.state.name}`);
-        if (this.state.name === "") {
-          alert('Name is compulsory')
-        }
-        else if (!isNaN(this.state.name)) {
-          alert('Numbers are not allowed in name field')
-        }
+        // if (this.state.name === "") {
+        //   alert('Name is compulsory')
+        // }
+        // else if (!isNaN(this.state.name)) {
+        //   alert('Numbers are not allowed in name field')
+        // }
         console.log(`Mail: ${this.state.mail}`);
         console.log(`Message: ${this.state.message}`);
     
@@ -105,7 +132,6 @@ export class ContactUsForm extends Component {
                 Love to Hear From You
               </h5>
               <div class="card-body">
-                {/* <form > */}
                   <div class="form-group" >
                     <label>Name:</label>
                     <input type="text" 
@@ -113,7 +139,7 @@ export class ContactUsForm extends Component {
                       class="form-control"
                       name="name"
                       placeholder="Enter name"
-                      onChange={this.myChangeHandler} 
+                      onChange={this.myNameChangeHandler} 
                     />
                     {this.state.err_name}
                   </div>
@@ -125,7 +151,7 @@ export class ContactUsForm extends Component {
                       name="mail"
                       value={this.state.mail} 
                       placeholder="Enter email"
-                      onChange={this.myChangeHandler} 
+                      onChange={this.myEmailChangeHandler} 
                     />
                     {this.state.err_mail}
                   </div>
@@ -135,17 +161,19 @@ export class ContactUsForm extends Component {
                     className="form-control" 
                     rows="3" 
                     name="message"
-                    onChange={this.myChangeHandler} 
+                    onChange={this.myMessageChangeHandler} 
                     value={this.state.message} 
-                   />
+                  />
+                  {this.state.err_message}
                   </div>
                   <button type="submit" 
                   class="btn btn-outline-primary"
                   onClick={this.onSubmitForm} 
-                  >
+                  disabled={this.state.nameCheck && this.state.emailCheck && this.state.messageCheck? false: true}
+                >
+                  
                     Submit
                   </button>
-                {/* </form> */}
               </div>
             </div>
           </div>

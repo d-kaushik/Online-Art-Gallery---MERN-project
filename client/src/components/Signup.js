@@ -45,14 +45,16 @@ export class Signup extends Component {
         err_name = (
           <small style={{ color: "red" }}>Numbers are not allowed</small>
         );
+      this.setState({nameCheck:false});
     }
     else {
       this.setState({nameCheck:true});
     }
-    if (val == "") {
+    if (val === "") {
         err_name = (
           <small style={{ color: "red" }}>Name is compulsory field</small>
         );
+      this.setState({nameCheck:false});
     }
     this.setState({ err_name: err_name });
     this.setState({ [nam]: val });
@@ -61,7 +63,7 @@ export class Signup extends Component {
     let nam = event.target.name;
     let val = event.target.value;
     let err_phone = "";
-    if (val == "") {
+    if (val === "") {
         err_phone = (
           <small style={{ color: "red" }}>
             Mobile number is compulsory field
@@ -72,11 +74,13 @@ export class Signup extends Component {
         err_phone = (
           <small style={{ color: "red" }}>Invalid mobile number</small>
         );
+      this.setState({phoneCheck:false})
     }
     else if (val.match(/^[a-zA-Z]+$/)) {
         err_phone = (
           <small style={{ color: "red" }}>Letters are not allowed</small>
         );
+      this.setState({phoneCheck:false})
     }
     else {
       this.setState({phoneCheck:true})
@@ -90,10 +94,11 @@ export class Signup extends Component {
     let nam = event.target.name;
     let val = event.target.value;
     let err_mail = "";
-    if (val == "") {
+    if (val === "") {
         err_mail = (
           <small style={{ color: "red" }}>Email is compulsory field</small>
         );
+      this.setState({emailCheck:false}) 
     }
     let lastAtPos = val.lastIndexOf("@");
     let lastDotPos = val.lastIndexOf(".");
@@ -108,6 +113,7 @@ export class Signup extends Component {
       )
       {
         err_mail = <small style={{ color: "red" }}>Invalid Email</small>;
+        this.setState({emailCheck:false})
       }
       else {
         this.setState({emailCheck:true})
@@ -126,10 +132,12 @@ export class Signup extends Component {
             Minimum six letters are require
           </small>
         );
+        this.setState({pass1Check:false})
       } else if (val.length > 10) {
         err_pass1 = (
           <small style={{ color: "red" }}>Password is too long</small>
         );
+        this.setState({pass1Check:false})
       }
       else {
         this.setState({pass1Check:true})
@@ -149,6 +157,7 @@ export class Signup extends Component {
       this.setState({passCheck:true})
     } else {
       err_pass2 = <small style={{ color: "red" }}>Password not matching</small>;
+      this.setState({passCheck:false})
     }
     this.setState({ err_pass2: err_pass2, password: val });
   };

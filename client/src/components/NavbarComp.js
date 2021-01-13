@@ -1,28 +1,21 @@
 import React, { Component } from 'react'
-import { Navbar, NavDropdown, FormControl, Form, Nav, Button, NavbarBrand } from 'react-bootstrap'
-import { Link, Switch } from 'react-router-dom'
+import { Nav} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 export class NavbarComp extends Component {
   render() {
     return (
-
-
       <Nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light" style={{ backgroundColor: 'white', padding: '15px' }} >
         <a class="navbar-brand" href="$"><Link to="/">
-
           <img
             src={"/assets/logo.png"}
             style={{ maxWidth: '100px', marginTop: '-10px', marginBottom: '-10px', maxHeight: '70px' }}
           />
-
         </Link></a>
-
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-
             <li class="nav-item ">
               <a class="nav-link" style={{ marginLeft: '30px', marginRight: '30px' }}><Link to="/"><h6 style={{ color: "black" }}><strong>HOME</strong></h6></Link></a>
             </li>
@@ -38,10 +31,6 @@ export class NavbarComp extends Component {
             <li class="nav-item">
               <a class="nav-link" style={{ marginLeft: '30px', marginRight: '30px' }}> <Link to="/offers"><h6 style={{ color: "black" }}><strong>OFFERS</strong></h6></Link></a>
             </li>
-
-
-
-
           </ul>
           <form class="input-group w-auto my-auto d-none d-sm-flex">
             <input
@@ -69,7 +58,7 @@ export class NavbarComp extends Component {
                   aria-haspopup="true"
                 >
                   <img
-                    src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"
+                    src="/assets/artist1.jpeg"
                     class="rounded-circle"
                     height="30"
                     alt=""
@@ -78,9 +67,9 @@ export class NavbarComp extends Component {
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item" href="#"><Link to='/profile' >My profile</Link></a></li>
-                  <li><a class="dropdown-item" href="#" ><Link to='/signup' >Settings</Link></a></li>
+                  <li><a class="dropdown-item ">Settings</a></li>
                   <div class="dropdown-divider"></div>
-                  <li><a class="dropdown-item" ><Link to='/signup' >Logout</Link></a></li>
+                  <li><a class="dropdown-item" ><Link to='/signup' >SignUp</Link></a></li>
                 </ul>
               </li>
             </li>
