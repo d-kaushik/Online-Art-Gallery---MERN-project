@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import ChangePassComp from "./ChangePassComp";
 import ProfileCard from "./ProfileCard";
 import ProfileMenu from "./ProfileMenu";
-// import MyProfile from "./MyProfileComp";
-// import Footer from "../components/Footer";
+import { connect } from "react-redux";
+import { getUser } from "../../actions/itemActions";
 export class ChangePass extends Component {
   render() {
     return (
@@ -12,7 +12,7 @@ export class ChangePass extends Component {
           <br></br>
           <div className="row gutters-sm">
             <div className="col-md-4 mb-3">
-              <ProfileCard></ProfileCard>
+              <ProfileCard username={this.props.users.name}></ProfileCard>
               <div className="card mt-3">
                 <ProfileMenu></ProfileMenu>
               </div>
@@ -34,4 +34,8 @@ export class ChangePass extends Component {
   }
 }
 
-export default ChangePass;
+const mapStateToProps = (state) => ({
+  users: state.users,
+});
+
+export default connect(mapStateToProps, { getUser })(ChangePass);

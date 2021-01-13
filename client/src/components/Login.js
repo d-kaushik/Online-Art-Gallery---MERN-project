@@ -9,21 +9,24 @@ export class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      errormessage: "",
       err_mail: "",
       err_pass: "",
+      pass1Check: false,
+      emailCheck:false
     };
   }
-
-  myChangeHandler = (event) => {
+  myEmailChangeHandler = (event) => {
     let nam = event.target.name;
     let val = event.target.value;
-    let err = "";
     let err_mail = "";
-    let err_pass = "";
-    if (nam === "email") {
-      let lastAtPos = val.lastIndexOf("@");
-      let lastDotPos = val.lastIndexOf(".");
+    if (val == "") {
+        err_mail = (
+          <small style={{ color: "red" }}>Email is compulsory field</small>
+      );
+      this.setState({emailCheck:false})
+    }
+    let lastAtPos = val.lastIndexOf("@");
+    let lastDotPos = val.lastIndexOf(".");
       if (
         !(
           lastAtPos < lastDotPos &&
@@ -32,20 +35,74 @@ export class Login extends Component {
           lastDotPos > 2 &&
           val.length - lastDotPos > 2
         )
-      ) {
+      )
+      {
         err_mail = <small style={{ color: "red" }}>Invalid Email</small>;
+        this.setState({emailCheck:false})
       }
+      else {
+        this.setState({emailCheck:true})
     }
-    if (nam === "password") {
-      if (val.length < 6) {
-        err_pass = <small style={{ color: "red" }}>Enter valid password</small>;
-      }
-    }
-    this.setState({ err_mail: err_mail });
-    this.setState({ err_pass: err_pass });
-    this.setState({ errormessage: err });
     this.setState({ [nam]: val });
+    this.setState({ err_mail: err_mail });
+  }
+  myChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    let err_pass = "";
+      if (val.length < 6) {
+        err_pass = (
+          <small style={{ color: "red" }}>
+            Minimum six letters are require
+          </small>
+        );
+        this.setState({pass1Check:false})
+      } else if (val.length > 10) {
+        err_pass = (
+          <small style={{ color: "red" }}>Password is too long</small>
+        );
+        this.setState({pass1Check:false})
+      }
+      else {
+        this.setState({pass1Check:true})
+      }
+      this.setState({ pass1: val });
+    
+    this.setState({ err_pass: err_pass });
+    this.setState({ [nam]: val });
+    
   };
+  // myChangeHandler = (event) => {
+  //   let nam = event.target.name;
+  //   let val = event.target.value;
+  //   let err = "";
+  //   let err_mail = "";
+  //   let err_pass = "";
+  //   if (nam === "email") {
+  //     let lastAtPos = val.lastIndexOf("@");
+  //     let lastDotPos = val.lastIndexOf(".");
+  //     if (
+  //       !(
+  //         lastAtPos < lastDotPos &&
+  //         lastAtPos > 0 &&
+  //         val.indexOf("@@") == -1 &&
+  //         lastDotPos > 2 &&
+  //         val.length - lastDotPos > 2
+  //       )
+  //     ) {
+  //       err_mail = <small style={{ color: "red" }}>Invalid Email</small>;
+  //     }
+  //   }
+  //   if (nam === "password") {
+  //     if (val.length < 6) {
+  //       err_pass = <small style={{ color: "red" }}>Enter valid password</small>;
+  //     }
+  //   }
+  //   this.setState({ err_mail: err_mail });
+  //   this.setState({ err_pass: err_pass });
+  //   this.setState({ errormessage: err });
+  //   this.setState({ [nam]: val });
+  // };
   handleClick = () => {
     const verifyUser = {
       email: this.state.email,
@@ -83,7 +140,7 @@ export class Login extends Component {
                     name="email"
                     aria-describedby="emailHelp"
                     placeholder="Enter email"
-                    onChange={this.myChangeHandler}
+                    onChange={this.myEmailChangeHandler}
                     value={this.state.email}
                   />
                   {this.state.err_mail}
@@ -115,6 +172,7 @@ export class Login extends Component {
                     onClick={() => {
                       this.handleClick();
                     }}
+                       disabled={this.state.emailCheck && this.state.pass1Check? false: true}
                   >
                       Login
                   </button>

@@ -96,7 +96,7 @@ export class Cart extends Component {
                       <div class="modal-content">
                         <div class="modal-header">
                           <h5 class="modal-title" id="exampleModalLabel">
-                            Information of Art
+                           Payment
               </h5>
                           <button
                             type="button"

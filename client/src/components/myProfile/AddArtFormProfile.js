@@ -22,7 +22,7 @@ export class AddArtFormProfile extends Component {
       err_pname: "",
       err_dime: "",
       err_tech: "",
-      name: "Mrunali Narkhede",
+      err_price:'',
       _id: "",
       pname: "",
       category: "Nature",
@@ -31,6 +31,11 @@ export class AddArtFormProfile extends Component {
       technique: "",
       desc: "",
       selectedFile: null,
+      nameCheck: false,
+      priceCheck: false,
+      techCheck: false,
+      descCheck: false,
+      fileCheck:true 
     };
   }
   componentDidMount() {
@@ -47,68 +52,121 @@ export class AddArtFormProfile extends Component {
   }
   FileChange = (event) => {
     let err_file = "";
+    let val = event.target.value;
     console.log(event.target.files[0]);
-    this.setState({ selectedFile: event.target.files[0] });
-    // if (nam === "file") {
-    //   if (!val.endsWith(".jpg")) {
-    //     console.log("ss" + val.endsWith(".jpg"));
-    //     err_file = (
-    //       <small style={{ color: "red" }}>Only JPG file Allowed</small>
-    //     );
-    //   }
-    // }
-    // this.setState({ err_file: err_file });
+    
+      if (!val.endsWith(".jpg")) {
+        console.log("ss" + val.endsWith(".jpg"));
+        err_file = (
+          <small style={{ color: "red" }}>Only JPG file Allowed</small>
+        );
+        this.setState({fileCheck:false})
+      }
+      else {
+        this.setState({ fileCheck: true })
+        this.setState({ selectedFile: event.target.files[0] });
+    }
+    
+    this.setState({ err_file: err_file });
   };
-  myChangeHandler = (event) => {
+  myNameChangeHandler = (event) => {
     let nam = event.target.name;
     let val = event.target.value;
-    console.log(nam + " " + val);
-    let err = "";
-    let err_mail = "";
-    let err_desc = "";
-
     let err_pname = "";
-    let err_dime = "";
-
-    if (nam === "pname") {
-      if (!val.match(/^[a-zA-Z]+$/)) {
-        err_pname = (
-          <small style={{ color: "red" }}>Numbers are not allowed</small>
-        );
-      }
-    }
-    if (nam === "pname") {
-      if (val == "") {
+    if (val === "") {
         err_pname = (
           <small style={{ color: "red" }}>Name is compulsory field</small>
         );
-      }
+      this.setState({nameCheck:false});
     }
-    if (nam === "price") {
-      if (val == "" || !Number(val) || val.length < 3) {
-        err_mail = (
-          <small style={{ color: "red" }}>
-            Only Numbers Allowed and should be greater than Rs.100
-          </small>
+    else if (!isNaN(val)) {
+        err_pname = (
+          <small style={{ color: "red" }}>Numbers are not allowed</small>
         );
-      }
+      this.setState({nameCheck:false});
     }
-    if (nam === "desc") {
-      if (val.length < 50) {
-        err_desc = (
-          <small style={{ color: "red" }}>Atleast 50 characters required</small>
-        );
-      }
+    else {
+      this.setState({nameCheck:true});
     }
-
-    this.setState({ err_mail: err_mail });
-    this.setState({ err_desc: err_desc });
-
+    
     this.setState({ err_pname: err_pname });
-    this.setState({ err_dime: err_dime });
-    this.setState({ errormessage: err });
+    this.setState({ [nam]: val });
+  }
+  myTechChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    let err_tech = "";
+    if (val === "") {
+        err_tech = (
+          <small style={{ color: "red" }}>Technique is compulsory field</small>
+        );
+      this.setState({techCheck:false});
+    }
+    else if (!isNaN(val)) {
+        err_tech = (
+          <small style={{ color: "red" }}>Numbers are not allowed</small>
+        );
+      this.setState({techCheck:false});
+    }
+    else {
+      this.setState({techCheck:true});
+    }
+    
+    this.setState({ err_tech: err_tech });
+    this.setState({ [nam]: val });
+  }
+  myPriceChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    let err_price = "";
+     if (val === "") {
+        err_price = (
+          <small style={{ color: "red" }}>Price is compulsory field</small>
+        );
+      this.setState({priceCheck:false});
+    }
+    else if (isNaN(val)) {
+        err_price = (
+          <small style={{ color: "red" }}>Letters are not allowed</small>
+        );
+      this.setState({priceCheck:false});
+    }
+    else if (val.length < 3) {
+      err_price = (
+          <small style={{ color: "red" }}>Price should be greater than $100</small>
+        );
+      this.setState({priceCheck:false});
+    }
+    else {
+      this.setState({priceCheck:true});
+    }
+    
+    this.setState({ err_price: err_price });
+    this.setState({ [nam]: val });
+  }
+  myDimChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    this.setState({ [nam]: val });
+  }
+  myChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    let err_desc = "";
+ 
+    if (val.length < 50) {
+      err_desc = (
+        <small style={{ color: "red" }}>Atleast 50 characters required</small>
+      );
+      this.setState({ descCheck: false });
+    }
+    else {
+      this.setState({descCheck:true});
+    }
+    this.setState({ err_desc: err_desc });
     this.setState({ [nam]: val });
   };
+
   handleClick = () => {
     const newPainting = {
       painting_name: this.state.pname,
@@ -180,7 +238,7 @@ export class AddArtFormProfile extends Component {
                       name="pname"
                       aria-describedby="emailHelp"
                       placeholder="Only characters"
-                      onChange={this.myChangeHandler}
+                      onChange={this.myNameChangeHandler}
                       value={this.state.pname}
                     />
                     {this.state.err_pname}
@@ -194,7 +252,7 @@ export class AddArtFormProfile extends Component {
                           name="category"
                           value={this.state.category}
                           defaultValue={this.state.category}
-                          onChange={this.myChangeHandler}
+                          onChange={this.myDimChangeHandler}
                         >
                           <option value="Nature">Nature</option>
                           <option value="Multi-color">Multi-color</option>
@@ -207,10 +265,10 @@ export class AddArtFormProfile extends Component {
                           class="form-control"
                           name="price"
                           placeholder="Price > 100 only"
-                          onChange={this.myChangeHandler}
+                          onChange={this.myPriceChangeHandler}
                           value={this.state.price}
                         />
-                        {this.state.err_mail}
+                        {this.state.err_price}
                       </div>
                     </div>
                     <div class="col-sm">
@@ -222,7 +280,7 @@ export class AddArtFormProfile extends Component {
                           name="dimension"
                           aria-describedby="emailHelp"
                           // placeholder="Only characters"
-                          onChange={this.myChangeHandler}
+                          onChange={this.myDimChangeHandler}
                           value={this.state.dimension}
                         />
                         {this.state.err_dime}
@@ -235,7 +293,7 @@ export class AddArtFormProfile extends Component {
                           name="technique"
                           aria-describedby="emailHelp"
                           placeholder="Only characters"
-                          onChange={this.myChangeHandler}
+                          onChange={this.myTechChangeHandler}
                           value={this.state.technique}
                         />
                         {this.state.err_tech}
@@ -266,17 +324,18 @@ export class AddArtFormProfile extends Component {
                     {this.state.err_file}
                   </div>
                   <div class="d-flex justify-content-center">
-                    <Link to="/dashboard">
+                    {/* <Link to="/dashboard"> */}
                     <button
                       type="button"
                       class="btn btn-outline-primary"
                       onClick={() => {
                         this.handleClick();
                       }}
+                        //disabled={this.state.nameCheck && this.state.priceCheck && this.state.descCheck && this.state.techCheck && this.state.fileCheck ? false: true}
                     >
                         Add / Update
                     </button>
-                    </Link>
+                    {/* </Link> */}
                     
                   </div>
                 </form>
@@ -300,3 +359,6 @@ export default connect(mapStateToProps, {
   updatePainting,
   getUser,
 })(AddArtFormProfile);
+
+
+

@@ -3,7 +3,10 @@ import ProfileCard from "./ProfileCard";
 import ProfileMenu from "./ProfileMenu";
 import AddArtFormProfile from "./AddArtFormProfile";
 import { Link, useLocation } from "react-router-dom";
-const AddArtProfile = () => {
+import { connect } from "react-redux";
+import { getUser } from "../../actions/itemActions";
+
+const AddArtProfile = (props) => {
   let location = useLocation();
 
   return (
@@ -12,7 +15,7 @@ const AddArtProfile = () => {
         <br></br>
         <div className="row gutters-sm">
           <div className="col-md-4 mb-3">
-            <ProfileCard></ProfileCard>
+            <ProfileCard username={props.users.name}></ProfileCard>
             <div className="card mt-3">
               <ProfileMenu></ProfileMenu>
             </div>
@@ -27,5 +30,8 @@ const AddArtProfile = () => {
   );
   // }
 };
+const mapStateToProps = (state) => ({
+  users: state.users,
+});
 
-export default AddArtProfile;
+export default connect(mapStateToProps, { getUser })(AddArtProfile);
